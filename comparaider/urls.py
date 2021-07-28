@@ -23,8 +23,8 @@ from showcase import urls
 
 
 urlpatterns = [
-    #path('', showcase.views.home_view, name='home'),
-    path('', Homepage.as_view(), name='homepage'),
+    #path('', Homepage.as_view(), name='homepage'),
+    path('', include('showcase.urls', namespace='showcase')),
     path('admin/', admin.site.urls),
-    path('showcase/', include('showcase.urls'))
+    #path('showcase/', include('showcase.urls')),
 ]
