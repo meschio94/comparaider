@@ -22,3 +22,11 @@ class Glider(models.Model):
 
     def __str__(self):
         return f"{self.maker} - {self.name}"
+
+class Item(models.Model):
+    title = models.CharField(max_length=100)
+    description = models.TextField()
+    image = models.ImageField()
+
+    def __str__(self):
+        return self.title
