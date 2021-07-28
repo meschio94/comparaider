@@ -10,3 +10,12 @@ class Homepage(TemplateView):
 
 class Prova(TemplateView):
     template_name = 'prova.html'
+
+class Manufactures(TemplateView):
+    template_name = 'manufactures.html'
+
+class Gliders(TemplateView):
+    template_name = 'gliders.html'
+
+class User(TemplateView):
+    template_name = 'user.html'
