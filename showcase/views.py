@@ -5,14 +5,17 @@ from django.views.generic import ListView, DetailView, View, TemplateView
 from .models import Item, Maker, Glider
 # Create your views here.
 
-class Homepage(TemplateView):
-    template_name = 'index.html'
+
 
 class Prova(TemplateView):
     template_name = 'prova.html'
 
 class Manufactures(TemplateView):
-    template_name = 'manufactures.html'
+    template_name = 'showcase/manufactures.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(Manufactures, self).get_context_data(**kwargs)
+        return context
 
 class Gliders(TemplateView):
     template_name = 'gliders.html'

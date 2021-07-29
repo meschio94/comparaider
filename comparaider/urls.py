@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from comparaider.views import Homepage
+from showcase import urls
+from comparaider.views import Homepage, get_gliders
 
 import showcase.views
 from showcase import urls
@@ -23,8 +24,9 @@ from showcase import urls
 
 
 urlpatterns = [
-    #path('', Homepage.as_view(), name='homepage'),
-    path('', include('showcase.urls', namespace='showcase')),
+    path('', Homepage.as_view(), name='home'),
+    path('showcase/', include('showcase.urls')),
+    #path('prova', get_gliders, name='prova'),
     path('admin/', admin.site.urls),
-    #path('showcase/', include('showcase.urls')),
+
 ]
