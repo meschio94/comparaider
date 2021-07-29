@@ -1,16 +1,17 @@
-
+{% load static %}
 {% block page_content %}
 
     {% for glider in gliders %}
 
-    <div class="card">
-      <img class="card-img-top" src="" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">{{ glider.name }}</h5>
-        <p class="card-text">{{ glider.year }}</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
+        <div class="card">
+          <img class="card-img-top" src="{{ glider.gliderImage.url }}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{ glider.name }}</h5>
+            <p class="card-text">{{ glider.year }}</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+              <a href="#" class="btn btn-primary">Add</a>
+          </div>
+        </div>
 
     {% endfor %}
 {% endblock %}
