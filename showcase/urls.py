@@ -12,4 +12,5 @@ urlpatterns = [
     path('manufactures/', Manufactures.as_view(), name='manufactures'),
     path('gliders/', Gliders.as_view(), name='gliders'),
     path('user/', User.as_view(), name='user'),
+
 ]

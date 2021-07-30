@@ -18,7 +18,7 @@ from django.contrib import admin
 from .settings import MEDIA_URL, MEDIA_ROOT
 from django.urls import include, path
 from showcase import urls
-from comparaider.views import Homepage, get_gliders
+from comparaider.views import Homepage
 
 import showcase.views
 from showcase import urls
@@ -30,5 +30,6 @@ urlpatterns = [
     path('showcase/', include('showcase.urls')),
     #path('prova', get_gliders, name='prova'),
     path('admin/', admin.site.urls),
+    #path('glider/', GliderListView.as_view(), name='gliderlist'),
 
 ] + static(MEDIA_URL, document_root=MEDIA_ROOT)
