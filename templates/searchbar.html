@@ -1,6 +1,11 @@
 {% load static %}
 
+
+
 {% block content %}
+
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+
 
     <div class="container">
         <div class="row">
@@ -67,6 +72,11 @@
                             <div class="card-body">
                                 <div class="wrapper text-center">
                                     <div class="btn-group btn-group-toggle text" data-toggle="buttons">
+                                        <input type="checkbox" class="btn-check" id="btn-check-outlined"
+                                               autocomplete="off">
+                                        <label class="btn btn-outline-primary" for="btn-check-outlined">K</label><br>
+
+
                                         <button type="button" class="btn btn-primary" data-toggle="button"
                                                 aria-pressed="true"
                                                 autocomplete="off">
@@ -124,29 +134,94 @@
                     <div class="mr-2 ml-2 mt-2 mb-2">
                         <div class="card" style=" max-width: 14rem; min-width: 14rem">
                             <div class="card-header text-center">
-                                Takeoff Weight (kg)
+                                Years
                             </div>
                             <div class="card-body">
-                                <div class="wrapper text-center">
-                                    <div class="selector">
-    <div class="price-slider">
-        <div id="slider-range" class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content">
-            <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
-            <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
-        </div>
-        <span id="min-price" data-currency="€" class="slider-price">0</span> <span class="seperator">-</span> <span id="max-price" data-currency="€" data-max="3500"  class="slider-price">3500 +</span>
-    </div>
-</div>
 
-                                </div>
+                                nothing here
+
+
                             </div>
                         </div>
                     </div>
+
                     <!-- END YEAR CARD -->
 
-                </div>
+                    <!-- GLIDER WEIGHT CARD -->
+                    <div class="mr-2 ml-2 mt-2 mb-2">
+                        <div class="card" style=" max-width: 14rem; min-width: 14rem">
+                            <div class="card-header text-center">
+                                Glider Weight (Kg)
+                            </div>
+                            <div class="card-body">
 
+                                nothing here
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- END GLIDER WEIGHT CARD -->
+
+                    <!-- FLAT AREA CARD -->
+                    <div class="mr-2 ml-2 mt-2 mb-2">
+                        <div class="card" style=" max-width: 14rem; min-width: 14rem">
+                            <div class="card-header text-center">
+                                Flat Area
+                            </div>
+                            <div class="card-body">
+
+                                nothing here
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- END FLAT AREA CARD -->
+
+                    <!-- FLAT ASPECT RATIO CARD -->
+                    <div class="mr-2 ml-2 mt-2 mb-2">
+                        <div class="card" style=" max-width: 14rem; min-width: 14rem">
+                            <div class="card-header text-center">
+                                Flat Aspect Ratio
+                            </div>
+                            <div class="card-body">
+
+                                nothing here
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- END FLAT ASPECT RATIO CARD -->
+
+                    <!-- CELL CARD -->
+                    <div class="mr-2 ml-2 mt-2 mb-2">
+                        <div class="card" style=" max-width: 14rem; min-width: 14rem">
+                            <div class="card-header text-center">
+                                Cell
+                            </div>
+                            <div class="card-body">
+
+                                nothing here
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!-- END COLLAPSE SECTION FILTER -->
         </div>
+        <!-- END CELL CARD -->
+
+    </div>
+
+    </div>
+    <!-- END COLLAPSE SECTION FILTER -->
+    </div>
+
+    <script src="{% static 'js/custom2.js' %}"></script>
 {% endblock %}
