@@ -2,14 +2,11 @@
 {% block page_content %}
 
 
+<div class="infinite-container">
+    <div class="card-deck mt-auto mb-auto">
 
-
-    <div class="row infinite-container">
-        {% for glider in gliders %}
-
-
-            <div class="infinite-items col-auto col-sm col-4 mr-2 ml-2 mt-2 mb-2">
-
+            {% for glider in gliders %}
+            <div class="infinite-item col-md-4 col-sm-6 col-12 mb-5 ">
                 <div class="card">
                     <img class="card-img-top" src="{{ glider.gliderImage.url }}" alt="Card image cap">
                     <div class="card-body">
@@ -33,51 +30,26 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
 
         {% endfor %}
+            {% if page_obj.has_next %}
+                <a class="infinite-more-link" href="?page={{ articles.next_page_number }}">More</a>
+                {% endif %}
+
     </div>
+</div>
 
-
-   <!--Pagination-->
-      <div class="container p-4">
-        <div class="pagination justify-content-center">
-            <span class="step-links">
-              {% if gliders.has_previous %}
-                  <a href="?page=1">&laquo; first</a>
-                  <a href="?page={{ gliders.previous_page_number }}">previous</a>
-              {% endif %}
-
-                <span class="current">
-                    Page {{ gliders.number }} of {{ gliders.paginator.num_pages }}
-                </span>
-
-              {% if gliders.has_next %}
-                  <a href="?page={{ gliders.next_page_number }}">next</a>
-                  <a href="?page={{ gliders.paginator.num_pages }}">last &raquo;</a>
-              {% endif %}
-            </span>
-            </div>
-        </div>
-      <!--end of Pagination-->
-
-
-
-    <script>
-        var infinite = new Waypoint.Infinite({
-            element: $('.infinite-container')[0],
-
-            offset: 'bottom-in-view',
-
-            onBeforePageLoad: function () {
-
-            },
-            onAfterPageLoad: function () {
-
-            }
-        });
-    </script>
+<script>
+    var infinite = new Waypoint.Infinite({
+      element: $('.infinite-container')[0],
+      onBeforePageLoad: function () {
+        $('.loading').show();
+      },
+      onAfterPageLoad: function ($items) {
+        $('.loading').hide();
+      }
+    });
+  </script>
 
 {% endblock %}

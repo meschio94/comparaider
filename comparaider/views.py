@@ -1,4 +1,6 @@
 import logging
+
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.http import HttpResponse
 
 # _logger = logging.getLogger(__name__)
@@ -21,9 +23,24 @@ class Homepage(TemplateView):
         myFilter = GliderFilter(self.request.GET, queryset=model)
         model = myFilter.qs
 
-        context['gliders'] = model
+        #context['gliders'] = model
         context['myFilter'] = myFilter
         context['manufactures'] = get_manufactures()
+
+        page = self.request.GET.get('page', 4)
+        paginator = Paginator(model, 4)
+
+        #parte paginatore con numeri manuale
+        page_number = self.request.GET.get('page')
+        page_obj = paginator.get_page(page_number)
+        context['gliders'] = page_obj
+        #fine parte paginatore manuale
+        try:
+            numbers = paginator.page(page)
+        except PageNotAnInteger:
+            numbers = paginator.page(1)
+        except EmptyPage:
+            numbers = paginator.page(paginator.num_pages)
 
         return context
 

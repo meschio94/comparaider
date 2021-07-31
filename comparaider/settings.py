@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'showcase',
     'django_filters',
     'django.contrib.sites',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [

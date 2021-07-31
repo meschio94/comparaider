@@ -1,5 +1,6 @@
 {% load static %}
 
+{% load crispy_forms_tags %}
 
 <div class="container">
     <div class="row">
@@ -8,7 +9,9 @@
             <div class="card-body p-0">
 
                 <div class="row">
-                    <div class="input-group mb-3">
+                    <form method="get">{{ myFilter.form|crispy }}</form>
+
+                    <form class="input-group mb-3">
                         <div class="input-group-prepend">
                             <button class="btn btn-outline-secondary dropdown-toggle" type="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Manufactures
@@ -19,10 +22,8 @@
                                 {% endfor %}
                             </div>
                         </div>
-                        <form method="get">{{ myFilter.form }}</form>
 
-                        <input type="text" placeholder="Search..." class="form-control" id="search"
-                               name="search">
+                        <form method="get">{{ myFilter.form|crispy }}</form>
                         <button type="submit" class="btn btn-base">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -32,195 +33,196 @@
                             </svg>
                         </button>
 
-                    </div>
-
                 </div>
-            </div>
 
+            </div>
         </div>
 
     </div>
-</div>
+
+
 
 <div section>
     <div class="row">
         <div class="col text-center">
             <p>
-                <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button"
-                   aria-expanded="false" aria-controls="collapseExample">
+                <button class="btn btn-primary" data-toggle="collapse" href="#collapseFilter" role="button"
+                        aria-expanded="false" aria-controls="collapseFilter">
                     Filters
-                </a>
+                </button>
         </div>
     </div>
     </p>
-    <!-- COLLAPSE SECTION FILTER -->
-    <div class="collapse" id="collapseExample">
+    <div class="row">
+        <!-- COLLAPSE SECTION FILTER -->
+        <div class="collapse" id="collapseFilter">
 
 
-        <div class="container">
+            <div class="container">
 
-            <div class="row">
+                <div class="row justify-content-center">
 
-                <!-- START CARDS SECTIONS-->
+                    <!-- START CARDS SECTIONS-->
 
-                <!-- CERTIFICATION CARD -->
-                <div class="col-auto mr-2 ml-2 mt-2 mb-2">
-                    <div class="card" style=" max-width: 12rem; min-width: 12rem">
+                    <!-- CERTIFICATION CARD -->
+                    <div class="col-auto mr-2 ml-2 mt-2 mb-2">
+                        <div class="card" style=" max-width: 12rem; min-width: 12rem">
 
-                        <div class="card-header text-center">
-                            Certification
-                        </div>
-                        <div class="card-body">
-                            <div class="wrapper text-center">
-                                <div class="btn-group btn-group-toggle text" data-toggle="buttons">
-
-
-                                    <input type="checkbox" class="btn-check" id="btn-check-outlined"
-                                           autocomplete="off">
-                                    <label class="btn btn-outline-primary" for="btn-check-outlined">K</label><br>
+                            <div class="card-header text-center">
+                                Certification
+                            </div>
+                            <div class="card-body">
+                                <div class="wrapper text-center">
+                                    <div class="btn-group btn-group-toggle text" data-toggle="buttons">
 
 
-                                    <button type="button" class="btn btn-primary" data-toggle="button"
-                                            aria-pressed="true"
-                                            autocomplete="off">
-                                        A
-                                    </button>
+                                        <input type="checkbox" class="btn-check" id="btn-check-outlined"
+                                               autocomplete="off">
+                                        <label class="btn btn-outline-primary" for="btn-check-outlined">K</label><br>
 
-                                    <button type="button" class="btn btn-primary" data-toggle="button"
-                                            aria-pressed="true"
-                                            autocomplete="off">
-                                        B
-                                    </button>
 
-                                    <button type="button" class="btn btn-primary" data-toggle="button"
-                                            aria-pressed="true"
-                                            autocomplete="off">
-                                        C
-                                    </button>
+                                        <button type="button" class="btn btn-primary" data-toggle="button"
+                                                aria-pressed="true"
+                                                autocomplete="off">
+                                            A
+                                        </button>
+
+                                        <button type="button" class="btn btn-primary" data-toggle="button"
+                                                aria-pressed="true"
+                                                autocomplete="off">
+                                            B
+                                        </button>
+
+                                        <button type="button" class="btn btn-primary" data-toggle="button"
+                                                aria-pressed="true"
+                                                autocomplete="off">
+                                            C
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- END CERTIFICATION CARD -->
+                    <!-- END CERTIFICATION CARD -->
 
-                <!-- TAKEOFF WEIGHT CARD -->
-                <div class="col-auto mr-2 ml-2 mt-2 mb-2">
-                    <div class="card" style=" max-width: 12rem; min-width: 12rem">
+                    <!-- TAKEOFF WEIGHT CARD -->
+                    <div class="col-auto mr-2 ml-2 mt-2 mb-2">
+                        <div class="card" style=" max-width: 12rem; min-width: 12rem">
 
-                        <div class="card-header text-center">
-                            Takeoff Weight (kg)
-                        </div>
-                        <div class="card-body">
-                            <div class="wrapper text-center">
-                                <div class="takeoff-weight">
+                            <div class="card-header text-center">
+                                Takeoff Weight (kg)
+                            </div>
+                            <div class="card-body">
+                                <div class="wrapper text-center">
+                                    <div class="takeoff-weight">
                                         <span class="input-number">
 
                                             <input type="number" maxlength="3" id="inputNumber" name="inputNumber"
                                                    value="50" style="width: 7rem">
 
                                         </span>
+                                    </div>
+
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END TAKEOFF WEIGHT CARD -->
+
+                    <!-- YEAR CARD -->
+                    <div class="col-auto mr-2 ml-2 mt-2 mb-2">
+                        <div class="card" style=" max-width: 12rem; min-width: 12rem">
+
+                            <div class="card-header text-center">
+                                Years
+                            </div>
+                            <div class="card-body">
+
+                                nothing here
+
 
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- END TAKEOFF WEIGHT CARD -->
 
-                <!-- YEAR CARD -->
-                <div class="col-auto mr-2 ml-2 mt-2 mb-2">
-                    <div class="card" style=" max-width: 12rem; min-width: 12rem">
+                    <!-- END YEAR CARD -->
 
-                        <div class="card-header text-center">
-                            Years
-                        </div>
-                        <div class="card-body">
+                    <!-- GLIDER WEIGHT CARD -->
+                    <div class="col-auto mr-2 ml-2 mt-2 mb-2">
+                        <div class="card" style=" max-width: 12rem; min-width: 12rem">
 
-                            nothing here
+                            <div class="card-header text-center">
+                                Glider Weight (Kg)
+                            </div>
+                            <div class="card-body">
 
-
-                        </div>
-                    </div>
-                </div>
-
-                <!-- END YEAR CARD -->
-
-                <!-- GLIDER WEIGHT CARD -->
-                <div class="col-auto mr-2 ml-2 mt-2 mb-2">
-                    <div class="card" style=" max-width: 12rem; min-width: 12rem">
-
-                        <div class="card-header text-center">
-                            Glider Weight (Kg)
-                        </div>
-                        <div class="card-body">
-
-                            nothing here
+                                nothing here
 
 
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- END GLIDER WEIGHT CARD -->
+                    <!-- END GLIDER WEIGHT CARD -->
 
-                <!-- FLAT AREA CARD -->
-                <div class="col-auto mr-2 ml-2 mt-2 mb-2">
-                    <div class="card" style=" max-width: 12rem; min-width: 12rem">
+                    <!-- FLAT AREA CARD -->
+                    <div class="col-auto mr-2 ml-2 mt-2 mb-2">
+                        <div class="card" style=" max-width: 12rem; min-width: 12rem">
 
-                        <div class="card-header text-center">
-                            Flat Area
-                        </div>
-                        <div class="card-body">
+                            <div class="card-header text-center">
+                                Flat Area
+                            </div>
+                            <div class="card-body">
 
-                            nothing here
-
-
-                        </div>
-                    </div>
-                </div>
-
-                <!-- END FLAT AREA CARD -->
-
-                <!-- FLAT ASPECT RATIO CARD -->
-                <div class="col-auto mr-2 ml-2 mt-2 mb-2">
-                    <div class="card" style=" max-width: 12rem; min-width: 12rem">
-
-                        <div class="card-header text-center">
-                            Flat Aspect Ratio
-                        </div>
-                        <div class="card-body">
-
-                            nothing here
+                                nothing here
 
 
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- END FLAT ASPECT RATIO CARD -->
+                    <!-- END FLAT AREA CARD -->
 
-                <!-- CELL CARD -->
-                <div class="col-auto mr-2 ml-2 mt-2 mb-2">
-                    <div class="card" style=" max-width: 12rem; min-width: 12rem">
+                    <!-- FLAT ASPECT RATIO CARD -->
+                    <div class="col-auto mr-2 ml-2 mt-2 mb-2">
+                        <div class="card" style=" max-width: 12rem; min-width: 12rem">
 
-                        <div class="card-header text-center">
-                            Cell
-                        </div>
-                        <div class="card-body">
+                            <div class="card-header text-center">
+                                Flat Aspect Ratio
+                            </div>
+                            <div class="card-body">
 
-                            nothing here
+                                nothing here
 
 
+                            </div>
                         </div>
                     </div>
+
+                    <!-- END FLAT ASPECT RATIO CARD -->
+
+                    <!-- CELL CARD -->
+                    <div class="col-auto mr-2 ml-2 mt-2 mb-2">
+                        <div class="card" style=" max-width: 12rem; min-width: 12rem">
+
+                            <div class="card-header text-center">
+                                Cell
+                            </div>
+                            <div class="card-body">
+
+                                nothing here
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END CELL CARD -->
                 </div>
-                <!-- END CELL CARD -->
+                <!-- END CARDS SECTIONS-->
             </div>
-            <!-- END CARDS SECTIONS-->
         </div>
+        <!-- END COLLAPSE FILTER -->
     </div>
-    <!-- END COLLAPSE FILTER -->
 </div>
 
 

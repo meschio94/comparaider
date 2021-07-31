@@ -3,12 +3,12 @@
 
 
 
-
-    <div class="row infinite-container">
+<div class="container">
+    <div class="row">
         {% for glider in gliders %}
 
 
-            <div class="infinite-items col-auto col-sm col-4 mr-2 ml-2 mt-2 mb-2">
+            <div class="col-auto col-sm col-4 mr-2 ml-2 mt-2 mb-2">
 
                 <div class="card">
                     <img class="card-img-top" src="{{ glider.gliderImage.url }}" alt="Card image cap">
@@ -39,9 +39,9 @@
 
         {% endfor %}
     </div>
+</div>
 
-
-   <!--Pagination-->
+    <!--Pagination-->
       <div class="container p-4">
         <div class="pagination justify-content-center">
             <span class="step-links">
