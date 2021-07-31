@@ -6,9 +6,15 @@ from .models import Item, Maker, Glider
 # Create your views here.
 
 
+class IndexView(ListView):
+    template_name = 'showcase/index.html'
 
 class Prova(TemplateView):
     template_name = 'showcase/prova.html'
+    def get_context_data(self, **kwargs):
+        context = super(Prova, self).get_context_data(**kwargs)
+        context['gliders'] = Glider.objects.all()
+        return context
 
 class Manufactures(TemplateView):
     template_name = 'showcase/manufactures.html'
@@ -18,26 +24,32 @@ class Manufactures(TemplateView):
         context['manufactures'] = Maker.objects.all()
         return context
 
-class Gliders(ListView):
+
+
+class GlidersView(ListView):
     model = Glider
-    template_name = 'showcase/cards.html'
+    template_name = 'showcase/index.html'
 
     def get_context_data(self, **kwargs):
-        context = super(Gliders, self).get_context_data(**kwargs)
-        context['gliders'] = Gliders.objects.all()
+        context = super(GlidersView, self).get_context_data(**kwargs)
+        context['gliders'] = GlidersView.objects.all()
+        context['glidersprova'] = "prova"
         return context
 
 class User(TemplateView):
     template_name = 'user.html'
 
 
+def gliders():
+
+    return "prova"
 
 def glider_list(request):
     model = Glider.objects.all()
-    #myFilter = GliderFilter(request.GET, queryset=model)
-    #model = myFilter.qs
+    myFilter = GliderFilter(request.GET, queryset=model)
+    model = myFilter.qs
     context = {
-        #'myFilter': myFilter,
+        'myFilter': myFilter,
         'gliderlist':model,
     }
-    return render(request,'showcase\cards.html', context)
+    return render(request,'index.html', context)

@@ -10,7 +10,7 @@ urlpatterns = [
     path('home/', Homepage.as_view(), name='home'),
     path('prova/', Prova.as_view(), name='prova'),
     path('manufactures/', Manufactures.as_view(), name='manufactures'),
-    path('gliders/', Gliders.as_view(), name='gliders'),
+    path('gliders/', GlidersView.as_view(), name='gliders'),
     path('user/', User.as_view(), name='user'),
 
 ]

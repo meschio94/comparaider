@@ -2601,6 +2601,22 @@ text-align: center;
 
 }
 
+/* DOUBLE SLIDER CUSTOM */
+#slider-div {
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+}
 
+#slider-div>div {
+  margin: 8px;
+}
+
+.slider-label {
+  position: absolute;
+  background-color: #eee;
+  padding: 4px;
+  font-size: 0.75rem;
+}
 
 .about_pape .banner-main {margin-bottom: 60px;}
