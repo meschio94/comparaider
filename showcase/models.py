@@ -4,8 +4,10 @@ from decimal import Decimal
 from django.core.validators import MinValueValidator
 from django.db import models
 
-import showcase.fields
 import django.utils.timezone as timezone
+
+import showcase.fields
+
 
 def get_upload_glider_image(instance, filename):
     return '{0}/{1}/{2}/{3}'.format(instance.maker,instance.year,instance.name,instance.name, filename)
@@ -36,6 +38,8 @@ class Item(models.Model):
 
     def __str__(self):
         return self.title
+
+
 
 
 

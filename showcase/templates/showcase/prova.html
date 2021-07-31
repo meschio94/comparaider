@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <div id="main_slider" class="section carousel slide banner-main" data-ride="carousel">
+
+        <div class="carousel-inner">
+
+                <div class="container">
+                    <div class="row marginiismall">
+
+
+                    </div>
+                </div>
+
+
+
+        </div>
+        <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
+            <i class='fa fa-angle-left'></i></a>
+        <a class="carousel-control-next" href="#main_slider" role="button" data-slide="next">
+            <i class='fa fa-angle-right'></i>
+        </a>
+    </div>
+      </section>
+    <section>
+    <div id="search" class="search section">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12 ">
+                  <div class="container">
+        {% include 'showcase/searchbar.html' %}
+                  </div>
+               </div>
+            </div>
+         </div>
+    </div>
+    </section>
+{% endblock %}
