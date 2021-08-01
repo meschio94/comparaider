@@ -27,21 +27,23 @@ class Homepage(TemplateView):
         context['myFilter'] = myFilter
         context['manufactures'] = get_manufactures()
 
-        page = self.request.GET.get('page', 4)
-        paginator = Paginator(model, 4)
+        page = self.request.GET.get('page', 1)
+        paginator = Paginator(model, 2)
 
         #parte paginatore con numeri manuale
-        page_number = self.request.GET.get('page')
-        page_obj = paginator.get_page(page_number)
-        context['gliders'] = page_obj
+        #page_number = self.request.GET.get('page')
+        #page_obj = paginator.get_page(page_number)
+        #context['gliders'] = page_obj
         #fine parte paginatore manuale
-        try:
-            numbers = paginator.page(page)
-        except PageNotAnInteger:
-            numbers = paginator.page(1)
-        except EmptyPage:
-            numbers = paginator.page(paginator.num_pages)
 
+        try:
+            gliders = paginator.page(page)
+        except PageNotAnInteger:
+            gliders = paginator.page(1)
+        except EmptyPage:
+            gliders = paginator.page(paginator.num_pages)
+
+        context['gliders'] = gliders
         return context
 
 
