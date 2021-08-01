@@ -1,5 +1,6 @@
 {% load static %}
-{% block page_content %}
+{% load my_tags %}
+{% block cards_content %}
 
 
     <div class="row infinite-container">
@@ -41,10 +42,16 @@
 
     <!--Pagination-->
     {% if gliders.has_next %}
-        <a class="infinite-more-link" href="?page={{ gliders.next_page_number }}">More</a>
+        <a class="infinite-more-link" href="?{% relative_url page=gliders.next_page_number %}">More</a>
     {% endif %}
 
     <!--end of Pagination-->
+
+    <!--Loading NON FUNZIONA-->
+    <div class="loading" style="display: none;">
+        {% include 'showcase/loader.html' %}
+    </div>
+    <!-- end of Loading -->
     <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
     <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
     <script src="{% static 'js/infinite.min.js' %}"></script>
@@ -52,6 +59,14 @@
     <script>
         var infinite = new Waypoint.Infinite({
             element: $('.infinite-container')[0],
+
+            onBeforePageLoad: function () {
+                $('.loading').show();
+            },
+
+            onAfterPageLoad: function () {
+                $('.loading').hide();
+            },
         });
     </script>
 
