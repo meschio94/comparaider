@@ -23,12 +23,17 @@
                 <!-- START HEAD TAB -->
                 <ul class="nav nav-tabs" id="#tabContent" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" data-toggle="tab" href="#gliderTechDataTab" role="tab"
+                        <a class="nav-link active" data-toggle="tab" href="#gliderTechDataTab{{ glider.id }}" role="tab"
                            aria-controls="gliderTechDataTab" aria-selected="true">Technical Data</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#gliderReviewsTab" role="tab"
+                        <a class="nav-link " data-toggle="tab" href="#gliderReviewsTab{{ glider.id }}" role="tab"
                            aria-controls="gliderReviewsTab" aria-selected="false">Reviews</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link " data-toggle="tab" href="#provaTab{{ glider.id }}" role="tab"
+                           aria-controls="provaTab" aria-selected="true">prova</a>
                     </li>
 
 
@@ -37,12 +42,18 @@
 
                 <div class="tab-content">
 
-                    <div class="tab-pane active" id="gliderTechDataTab">
+                    <div class="tab-pane active" id="gliderTechDataTab{{ glider.id }}">
                         {% include 'showcase/modal_table.html' %}
                     </div>
 
-                    <div class="tab-pane" id="gliderReviewsTab">
-                        nothing here
+                    <div class="tab-pane" id="gliderReviewsTab{{ glider.id }}">
+                        {% include 'showcase/modal_review.html' %}
+
+                    </div>
+
+                    <div class="tab-pane" id="provaTab{{ glider.id }}">
+                        PROVA TAB {{ glider.name }}
+
                     </div>
 
                 </div>
