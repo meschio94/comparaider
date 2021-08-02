@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView, View, TemplateView
@@ -21,7 +22,20 @@ class Manufactures(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(Manufactures, self).get_context_data(**kwargs)
-        context['manufactures'] = Maker.objects.all()
+        model = Maker.objects.all()
+
+        page = self.request.GET.get('page', 1)
+        paginator = Paginator(model, 2)
+
+        try:
+            manufactures = paginator.page(page)
+        except PageNotAnInteger:
+            manufactures = paginator.page(1)
+        except EmptyPage:
+            manufactures = paginator.page(paginator.num_pages)
+
+        context['manufactures'] = manufactures
+
         return context
 
 

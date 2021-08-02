@@ -1,0 +1,42 @@
+{% load static %}
+{% load my_tags %}
+{% block cards_manufactures %}
+
+    <div class="row infinite-container">
+
+        {% for manufacture in manufactures %}
+
+
+            <div class="col-auto col-sm col-4 mr-2 ml-2 mt-2 mb-2 infinite-item ">
+
+                <div class="card ">
+                    <img class="card-img-top" src="{{ manufacture.logoImage.url }}" alt="Card image cap">
+                    <div class="card-body">
+                        <div class="row ml-1 text-center">
+                            <h3 href="#" class="card-title">{{ manufacture.name }} </h3>
+
+                        </div>
+
+                        <p class="card-text">{{ glider.year }}</p>
+                        <div class="card-body">
+                            <div class="row ml-1">
+                                <div class="col text-center">
+                                    <button type="button" class="btn btn-primary" data-toggle="modal"
+                                            data-target="#modal{{ manufacture.id }}">Page
+                                    </button>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        {% endfor %}
+    </div>
+
+{% endblock %}
+{% load static %}

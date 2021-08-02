@@ -1893,112 +1893,117 @@ model</ColNames>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="612" parent="183">
+    <column id="612" parent="183" name="logoImage">
+      <Position>3</Position>
+      <DataType>varchar(100)|0s</DataType>
+      <DefaultExpression>null</DefaultExpression>
+    </column>
+    <key id="613" parent="183">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="613" parent="184" name="id">
+    <column id="614" parent="184" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="614" parent="184" name="certification">
+    <column id="615" parent="184" name="certification">
       <Position>2</Position>
       <DataType>varchar(1)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="615" parent="184" name="size">
+    <column id="616" parent="184" name="size">
       <Position>3</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="616" parent="184" name="takeoffWeightMin">
+    <column id="617" parent="184" name="takeoffWeightMin">
       <Position>4</Position>
       <DataType>integer unsigned|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="617" parent="184" name="takeoffWeightMax">
+    <column id="618" parent="184" name="takeoffWeightMax">
       <Position>5</Position>
       <DataType>integer unsigned|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="618" parent="184" name="gliderWeight">
+    <column id="619" parent="184" name="gliderWeight">
       <Position>6</Position>
       <DataType>decimal|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="619" parent="184" name="flatArea">
+    <column id="620" parent="184" name="flatArea">
       <Position>7</Position>
       <DataType>integer unsigned|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="620" parent="184" name="cells">
+    <column id="621" parent="184" name="cells">
       <Position>8</Position>
       <DataType>integer unsigned|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="621" parent="184" name="glider_id">
+    <column id="622" parent="184" name="glider_id">
       <Position>9</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="622" parent="184" name="projectArea">
+    <column id="623" parent="184" name="projectArea">
       <Position>10</Position>
       <DataType>decimal|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="623" parent="184" name="showcase_size_glider_id_c1f1e6ba">
+    <index id="624" parent="184" name="showcase_size_glider_id_c1f1e6ba">
       <ColNames>glider_id</ColNames>
       <ColumnCollations></ColumnCollations>
     </index>
-    <key id="624" parent="184">
+    <key id="625" parent="184">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="625" parent="184">
+    <foreign-key id="626" parent="184">
       <ColNames>glider_id</ColNames>
       <RefTableName>showcase_glider</RefTableName>
       <RefColNames>id</RefColNames>
       <Deferrable>1</Deferrable>
       <InitiallyDeferred>1</InitiallyDeferred>
     </foreign-key>
-    <check id="626" parent="184">
+    <check id="627" parent="184">
       <Predicate>&quot;cells&quot; &gt;= 0</Predicate>
     </check>
-    <check id="627" parent="184">
+    <check id="628" parent="184">
       <Predicate>&quot;flatArea&quot; &gt;= 0</Predicate>
     </check>
-    <check id="628" parent="184">
+    <check id="629" parent="184">
       <Predicate>&quot;takeoffWeightMax&quot; &gt;= 0</Predicate>
     </check>
-    <check id="629" parent="184">
+    <check id="630" parent="184">
       <Predicate>&quot;takeoffWeightMin&quot; &gt;= 0</Predicate>
     </check>
-    <column id="630" parent="185" name="type">
+    <column id="631" parent="185" name="type">
       <Position>1</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="631" parent="185" name="name">
+    <column id="632" parent="185" name="name">
       <Position>2</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="632" parent="185" name="tbl_name">
+    <column id="633" parent="185" name="tbl_name">
       <Position>3</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="633" parent="185" name="rootpage">
+    <column id="634" parent="185" name="rootpage">
       <Position>4</Position>
       <DataType>int|0s</DataType>
     </column>
-    <column id="634" parent="185" name="sql">
+    <column id="635" parent="185" name="sql">
       <Position>5</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="635" parent="186" name="name">
+    <column id="636" parent="186" name="name">
       <Position>1</Position>
     </column>
-    <column id="636" parent="186" name="seq">
+    <column id="637" parent="186" name="seq">
       <Position>2</Position>
     </column>
   </database-model>
