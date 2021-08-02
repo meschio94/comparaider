@@ -1,0 +1,40 @@
+{% load static %}
+
+{% block modal_table %}
+
+    <table class="table table-striped" id="table{{ glider.id }}">
+        <thead>
+        <tr>
+            <th scope="col">Size</th>
+            {% for size in glider.glider_size.all %}
+
+                 <th scope="col">{{ size.size }}</th>
+
+            {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">Certification</th>
+            <td>{{ glider.name }}</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+        </tr>
+        <tr>
+            <th scope="row">Takeoff Weight</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+        </tr>
+        <tr>
+            <th scope="row">Cells</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+        </tr>
+        </tbody>
+    </table>
+
+{% endblock %}
+
+{% load static %}

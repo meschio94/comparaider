@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView, View, TemplateView
 from .filters import GliderFilter
 from .models import Item, Maker, Glider
@@ -53,3 +53,10 @@ def glider_list(request):
         'gliderlist':model,
     }
     return render(request,'index.html', context)
+
+def view_glider_table(request, id=None):
+    instance = get_object_or_404(Glider, id=id)
+    context={
+        'instance':instance
+    }
+    return render(request, 'showcase/modal_glider.html')

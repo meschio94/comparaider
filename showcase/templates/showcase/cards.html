@@ -23,7 +23,8 @@
                         <div class="card-body">
                             <div class="row ml-1">
                                 <div class="mr-auto">
-                                    <button href="#" class="btn btn-primary float-left">Page</button>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal{{ glider.id }}">Page</button>
+                                    {% include 'showcase/modal_glider.html' %}
                                 </div>
                                 <div class="ml-auto mr-3">
                                     <button href="#" class="btn btn-primary float-right">Compare</button>
@@ -38,6 +39,7 @@
 
         {% endfor %}
     </div>
+
 
 
     <!--Pagination-->
