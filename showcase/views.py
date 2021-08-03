@@ -53,11 +53,13 @@ class ShowManufacturesProfileView(DetailView):
         myFilter = GliderFilter(self.request.GET, queryset=model)
         model = myFilter.qs
 
+        page_manufacture = get_object_or_404(Maker, id=self.kwargs['pk'])
+
         # context['gliders'] = model
         context['myFilter'] = myFilter
         context['manufactures'] = Maker.objects.all()
         context['sizes'] = Size.objects.all()
-
+        context['page_manufacture'] = page_manufacture
         page = self.request.GET.get('page', 1)
         paginator = Paginator(model, 2)
 

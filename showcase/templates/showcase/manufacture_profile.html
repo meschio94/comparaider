@@ -5,11 +5,26 @@
 {% block content %}
     <div id="main_slider" class="section carousel slide banner-main" data-ride="carousel">
 
-        <div class="carousel-inner">
-            <div class="container">
-                <div class="row marginiismall"></div>
-            </div>
-        </div>
+        <!--<div class="carousel-item active">-->
+                <div class="container">
+                    <div class="row marginii">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                            <div class="carousel-caption ">
+                                <h1>Welcome to <strong class="color">{{ page_manufacture.name }}</strong></h1>
+                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have
+                                    suffered alteration in some form, by injected humour</p>
+                                <!--<a class="btn btn-lg btn-primary" href="#" role="button">Buy Now</a>
+                                <a class="btn btn-lg btn-primary" href="about.html" role="button">About </a>-->
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                            <div class="img-box">
+                                <figure><img src="{{ page_manufacture.logoImage.url }}" alt="img"/></figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--</div>-->
 
     </div>
 

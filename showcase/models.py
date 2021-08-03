@@ -36,14 +36,16 @@ class Glider(models.Model):
     def __str__(self):
         return f"{self.maker} - {self.name}"
 
-CERTIFICATION_CHOICES = [
-    ('A', 'A'),
-    ('B', 'B'),
-    ('C', 'C'),
-    ('D', 'D'),
-]
+
 
 class Size(models.Model):
+    CERTIFICATION_CHOICES = [
+        ('A', 'A'),
+        ('B', 'B'),
+        ('C', 'C'),
+        ('D', 'D'),
+    ]
+
     glider = models.ForeignKey(Glider, on_delete=models.CASCADE, related_name='glider_size')
     certification = models.CharField(max_length=1, choices=CERTIFICATION_CHOICES) #input selezionatore
     size = models.CharField(max_length=10)
