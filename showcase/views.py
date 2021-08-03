@@ -3,7 +3,9 @@ from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView, View, TemplateView
 from .filters import GliderFilter
-from .models import Item, Maker, Glider
+from .models import Item, Maker, Glider, Size
+
+
 # Create your views here.
 
 
@@ -16,6 +18,7 @@ class Prova(TemplateView):
         context = super(Prova, self).get_context_data(**kwargs)
         context['gliders'] = Glider.objects.all()
         return context
+
 
 class Manufactures(TemplateView):
     template_name = 'showcase/manufactures.html'
@@ -38,6 +41,41 @@ class Manufactures(TemplateView):
 
         return context
 
+
+class ShowManufacturesProfileView(DetailView):
+    model = Maker
+    template_name = 'showcase/manufacture_profile.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ShowManufacturesProfileView, self).get_context_data(**kwargs)
+
+        model = Glider.objects.all()
+        myFilter = GliderFilter(self.request.GET, queryset=model)
+        model = myFilter.qs
+
+        # context['gliders'] = model
+        context['myFilter'] = myFilter
+        context['manufactures'] = Maker.objects.all()
+        context['sizes'] = Size.objects.all()
+
+        page = self.request.GET.get('page', 1)
+        paginator = Paginator(model, 2)
+
+        # parte paginatore con numeri manuale
+        # page_number = self.request.GET.get('page')
+        # page_obj = paginator.get_page(page_number)
+        # context['gliders'] = page_obj
+        # fine parte paginatore manuale
+
+        try:
+            gliders = paginator.page(page)
+        except PageNotAnInteger:
+            gliders = paginator.page(1)
+        except EmptyPage:
+            gliders = paginator.page(paginator.num_pages)
+
+        context['gliders'] = gliders
+        return context
 
 
 class GlidersView(ListView):

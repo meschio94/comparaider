@@ -20,9 +20,9 @@
                         <p class="card-text">{{ glider.year }}</p>
                         <div class="card-body">
                             <div class="row ml-1">
+                                <a href="{% url 'showcase:manufacture_profile' manufacture.id %}" class="link">LINK PAGE</a>
                                 <div class="col text-center">
-                                    <button type="button" class="btn btn-primary" data-toggle="modal"
-                                            data-target="#modal{{ manufacture.id }}">Page
+                                    <button type="button" class="btn btn-primary" >Page
                                     </button>
 
                                 </div>
@@ -37,6 +37,7 @@
 
         {% endfor %}
     </div>
+
 
 {% endblock %}
 {% load static %}

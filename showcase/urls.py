@@ -12,5 +12,6 @@ urlpatterns = [
     path('manufactures/', Manufactures.as_view(), name='manufactures'),
     path('gliders/', GlidersView.as_view(), name='gliders'),
     path('user/', User.as_view(), name='user'),
+    path('<int:pk>/manufacture_profile/', ShowManufacturesProfileView.as_view(), name='manufacture_profile'),
 
 ]

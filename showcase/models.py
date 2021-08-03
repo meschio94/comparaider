@@ -4,6 +4,7 @@ from decimal import Decimal
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 
+from django.urls import reverse
 import django.utils.timezone as timezone
 
 import showcase.fields
@@ -20,6 +21,9 @@ class Maker(models.Model):
     logoImage = models.ImageField(default=None, upload_to= get_upload_maker_logo_image)
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('showcase:manufacture_profile',kwargs={'pk': self.pk})
 
 
 class Glider(models.Model):
