@@ -12,32 +12,45 @@
                 <div class="row">
 
 
-
                     <form class="input-group mb-3">
                         <!-- selector stylisch <div class="input-group-prepend">
                             <button class="btn btn-outline-secondary dropdown-toggle" type="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Manufactures
                             </button>
                             <div class="dropdown-menu">
-                                {% for manufacture in manufactures %}
+
                                     <a class="dropdown-item" href="#">{{ manufacture.name }}</a>
-                                {% endfor %}
+
                             </div>
                         </div> -->
 
                         <form method="get">
-                            {{ myFilter.form|crispy }}
+                            <div class="row">
+                                <div class="col-lg-6 col-md-12">
+                                    {{ myFilter.form.name|as_crispy_field }}
+                                </div>
+                                <div class="col-lg-6 col-md-12">
+                                    {{ myFilter.form.maker|as_crispy_field }}
+                                </div>
+                                <div class="col-lg-6 col-md-12">
+                                    <button type="submit" class="btn btn-base">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24"
+                                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                             stroke-linejoin="round" class="feather feather-search">
+                                            <circle cx="11" cy="11" r="8"></circle>
+                                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
 
-                            {{ mySizeFilter.form|crispy }}
-                        <button type="submit" class="btn btn-base">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                 stroke-linejoin="round" class="feather feather-search">
-                                <circle cx="11" cy="11" r="8"></circle>
-                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                            </svg>
-                        </button>
-                            </form>
+                            <div class="row">
+                                {{ mySizeFilter.form|crispy }}
+                            </div>
+
+
+                        </form>
 
                 </div>
 

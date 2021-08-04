@@ -3,8 +3,7 @@ from django.forms import CheckboxSelectMultiple, SelectMultiple, NumberInput
 from django.shortcuts import render
 
 from .models import Glider, Maker, Size, CERTIFICATION_CHOICES
-from django_filters import CharFilter, NumberFilter, NumericRangeFilter, ChoiceFilter, RangeFilter
-
+from django_filters import CharFilter, NumberFilter, NumericRangeFilter, ChoiceFilter, RangeFilter, MultipleChoiceFilter
 
 
 class GliderFilter(django_filters.FilterSet):
@@ -21,9 +20,9 @@ class GliderFilter(django_filters.FilterSet):
 
 
 class SizeFilter(django_filters.FilterSet):
-    certification = ChoiceFilter(field_name= "certification", choices=CERTIFICATION_CHOICES)
+    certification = MultipleChoiceFilter(field_name= "certification", choices=CERTIFICATION_CHOICES, widget=CheckboxSelectMultiple)
     cells = RangeFilter(field_name="cells", lookup_expr='icontains')
     gliderWeight = RangeFilter(field_name="gliderWeight", lookup_expr='icontains')
-    projectArea = RangeFilter(field_name="projectAreat", lookup_expr='icontains')
+    projectArea = RangeFilter(field_name="projectArea", lookup_expr='icontains')
     flatArea = RangeFilter(field_name="flatArea", lookup_expr='icontains')
 
