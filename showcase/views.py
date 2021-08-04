@@ -114,3 +114,4 @@ def view_glider_table(request, id=None):
         'instance':instance
     }
     return render(request, 'showcase/modal_glider.html')
+

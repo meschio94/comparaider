@@ -1,8 +1,9 @@
 import django_filters
-from django.forms import CheckboxSelectMultiple, SelectMultiple
+from django.forms import CheckboxSelectMultiple, SelectMultiple, NumberInput
 
 from .models import Glider, Maker, Size
-from django_filters import CharFilter, NumberFilter, NumericRangeFilter, ChoiceFilter
+from django_filters import CharFilter, NumberFilter, NumericRangeFilter, ChoiceFilter, RangeFilter
+
 
 
 class GliderFilter(django_filters.FilterSet):
@@ -14,12 +15,5 @@ class GliderFilter(django_filters.FilterSet):
         label="manufactures",
         label_suffix="",
     )
-    year = NumericRangeFilter(field_name="year", lookup_expr='icontains')
+    year = RangeFilter(field_name="year", lookup_expr='icontains')
 
-
-class SizeFilter(django_filters.FilterSet):
-    certification = ChoiceFilter(field_name='certification',choices=Size.CERTIFICATION_CHOICES)
-
-    class Meta:
-        model = Size
-        fields = ["certification"]

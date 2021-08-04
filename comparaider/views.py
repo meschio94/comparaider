@@ -7,11 +7,11 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.views.generic import TemplateView, ListView
 
-from showcase.filters import GliderFilter, SizeFilter
+from showcase.filters import GliderFilter
 from showcase.models import Maker,Glider,Size
 from showcase.views import gliders
 from queryset_sequence import QuerySetSequence
-
+from itertools import chain
 
 class Homepage(TemplateView):
     template_name = 'showcase/index.html'
@@ -22,16 +22,17 @@ class Homepage(TemplateView):
         context = super(Homepage, self).get_context_data(**kwargs)
 
         model = Glider.objects.all()
-        mySizeFilter = SizeFilter(self.request.GET, queryset=Size.objects.all())
+
         myFilter = GliderFilter(self.request.GET, queryset=model)
+        #mySizeFilter = SizeFilter(self.request.GET, queryset=Size.objects.filter(glider__id))
 
-        query = QuerySetSequence(myFilter.qs,mySizeFilter.qs)
+        #query = QuerySetSequence(myFilter.qs,mySizeFilter.qs)
 
-        model = query.order_by("-id")
+        model = myFilter.qs
 
         #context['gliders'] = model
         context['myFilter'] = myFilter
-        context['mySizeFilter'] = mySizeFilter
+        #context['mySizeFilter'] = mySizeFilter
         context['manufactures'] = get_manufactures()
         context['sizes'] = Size.objects.all()
 

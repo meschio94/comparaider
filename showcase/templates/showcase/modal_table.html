@@ -39,6 +39,12 @@
                 <th scope="col">{{ size.cells }}</th>
             {% endfor %}
         </tr>
+        <tr>
+            <th scope="row">Glider Weight</th>
+            {% for size in glider.glider_size.all %}
+                <th scope="col">{{ size.gliderWeight }}</th>
+            {% endfor %}
+        </tr>
         </tbody>
     </table>
 
