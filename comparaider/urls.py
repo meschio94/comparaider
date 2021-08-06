@@ -27,10 +27,10 @@ from showcase import urls
 
 urlpatterns = [
     path('', Homepage.as_view(), name='home'),
-    path('showcase/', include('showcase.urls')),
-    path('prova', gliders, name='prova'),
     path('admin/', admin.site.urls),
-    path('cards/', gliders, name='gliders'),
+    path('showcase/', include('showcase.urls')),
+    path('members/', include('django.contrib.auth.urls')),
+    path('members/', include('members.urls')),
     #path('glider/', GliderListView.as_view(), name='gliderlist'),
 
 ] + static(MEDIA_URL, document_root=MEDIA_ROOT)

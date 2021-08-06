@@ -1,6 +1,6 @@
 {% load static %}
 
-{% block content %}
+{% block navbar %}
 <!-- header -->
       <header class="section">
          <!-- header inner -->
@@ -22,8 +22,14 @@
                                  <li> <a href={% url "showcase:home" %}>Home</a> </li>
                                  <li> <a href={% url "showcase:prova" %}>Prova</a> </li>
                                  <li><a href={% url "showcase:manufactures" %}>Manufactures</a></li>
-                                 <li><a href={% url "showcase:user" %}>User</a></li>
-                                 <!--<li class="last"><a href="#"><img src="{% static 'images/search_icon.png' %}" alt="icon"/></a></li>-->
+
+                                  {% if user.is_authenticated %}
+                                 <li><a href={% url "members:signup" %}>Profile</a></li>
+                                  <li><a href={% url "members:signup" %}>Logout</a></li>
+                                 {% else %}
+                                  <li><a href={% url "members:login" %}>Login</a></li>
+                                  <li><a href={% url "members:signup" %}>Sign up</a></li>
+                                  {% endif %}
                               </ul>
                            </nav>
                         </div>

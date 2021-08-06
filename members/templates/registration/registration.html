@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}
+    <title>Comparaider - New User</title>
+{% endblock %}
+
+{% block content %}
+
+
+
+    <h1>Sign up</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input type="submit" value="Sign up" class="btn btn-success mt-3">
+    </form>
+    <a href="{% url 'showcase:home' %}" class="mt-3 btn btn-danger"><span>Cancel</span></a>
+
+
+{% endblock %}

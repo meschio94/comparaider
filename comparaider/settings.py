@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django_filters',
     'django.contrib.sites',
     'crispy_forms',
+    'members'
 ]
 
 MIDDLEWARE = [
@@ -130,3 +131,13 @@ MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SITE_ID=1
+
+AUTH_USER_MODEL = "members.User"
+
+#LOGIN_URL = 'login'
+
+#LOGIN_REDIRECT_URL = 'home'
+
+#LOGOUT_REDIRECT_URL = 'home'
+
+CRISPY_TEMPLATE_PACK ='bootstrap4'

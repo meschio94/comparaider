@@ -1,8 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
-{% block content %}
+{% block carousel_header %}
     <section>
         <div id="main_slider" class="section carousel slide banner-main" data-ride="carousel">
             <!--<ol class="carousel-indicators">
@@ -41,6 +40,10 @@
         </div>
 
     </section>
+{% endblock %}
+
+{% block content %}
+
     <!-- plant -->
     <div id="plant" class="section  product">
         <div class="container">
