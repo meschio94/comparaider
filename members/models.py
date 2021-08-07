@@ -1,7 +1,7 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from showcase.models import Maker
+
 
 # Create your models here.
 
@@ -18,4 +18,8 @@ class Person(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     #username = models.CharField(max_length=250)
     #personImage = models.ImageField(upload_to= get_upload_person_image, default=None)
+
+
+class Manufacturer(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
 

@@ -5,20 +5,23 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 
 from django.urls import reverse
+from members.models import User, Person
 import django.utils.timezone as timezone
 
 import showcase.fields
 
 
 def get_upload_glider_image(instance, filename):
-    return '{0}/{1}/{2}/{3}'.format(instance.maker,instance.year,instance.name,instance.name, filename)
+    return '{0}/{1}/{2}/{3}/{4}'.format("products",instance.maker,instance.year,instance.name,instance.name, filename)
 
 def get_upload_maker_logo_image(instance, filename):
-    return '{0}/{1}/{2}'.format(instance.name, instance.name , "logo" , filename)
+    return '{0}/{1}/{2}/{3}'.format("products",instance.name, instance.name , "logo" , filename)
 
 class Maker(models.Model):
     name = models.CharField(max_length=255)
     logoImage = models.ImageField(default=None, upload_to= get_upload_maker_logo_image)
+    textIntro = models.TextField(blank=True, null=True)
+    account = models.OneToOneField(User, null=True, blank=True,on_delete=models.SET_NULL)
     def __str__(self):
         return self.name
 
@@ -30,7 +33,6 @@ class Glider(models.Model):
     name = models.CharField(max_length=255)
     maker = models.ForeignKey(Maker, on_delete=models.CASCADE)
     year = showcase.fields.Year(max_value=timezone.now().year, default=timezone.now().year)
-    gliderWeight = models.DecimalField(max_digits=10, decimal_places=2, validators=[MinValueValidator(Decimal('0.01'))]) #da eliminare
     gliderImage = models.ImageField(upload_to= get_upload_glider_image, default=None)
 
     def __str__(self):
@@ -56,14 +58,17 @@ class Size(models.Model):
     projectArea = models.DecimalField(max_digits=5, decimal_places=2, validators=[MinValueValidator(Decimal('0.01'))])
     cells = models.PositiveIntegerField()
 
-class Item(models.Model):
-    title = models.CharField(max_length=100)
-    description = models.TextField()
-    image = models.ImageField()
-
     def __str__(self):
-        return self.title
+        return f"{self.name} : {self.size}"
 
+class GliderReview(models.Model):
+    glider = models.ForeignKey(Glider, on_delete=models.CASCADE, related_name='glider_review')
+    person = models.ForeignKey(Person, related_name='reviews', on_delete=models.CASCADE)
+
+    content = models.TextField(blank=True, null=True)
+    stars = models.IntegerField()
+
+    date_added = models.DateTimeField(auto_now_add=True)
 
 
 

@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView, View, TemplateView
 from .filters import GliderFilter
-from .models import Item, Maker, Glider, Size
+from .models import Maker, Glider, Size
 
 
 # Create your views here.
