@@ -4,6 +4,8 @@ from django.utils.translation import gettext_lazy as _
 
 
 # Create your models here.
+#from showcase.models import GliderReview
+
 
 def get_upload_person_image(instance, filename):
     return '{0}/{1}/{2}/{3}'.format("User","Person",instance.id,"avatar", filename)
@@ -16,10 +18,11 @@ class User(AbstractUser):
 
 class Person(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
+    #reviews = models.ManyToManyField(GliderReview, related_name='user_reviews')
     #username = models.CharField(max_length=250)
     #personImage = models.ImageField(upload_to= get_upload_person_image, default=None)
 
 
 class Manufacturer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
-
+    #maker = models.OneToOneField(Maker, related_name='user_manufacturer')

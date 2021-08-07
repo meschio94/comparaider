@@ -1,11 +1,11 @@
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.http import HttpResponse
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, DetailView, View, TemplateView
 from .filters import GliderFilter
 from .models import Maker, Glider, Size
-
-
+from members.decorators import manufacturer_required, person_required
+from .forms import MakerEditForm,GliderForm,SizeForm
 # Create your views here.
 
 
@@ -89,6 +89,30 @@ class GlidersView(ListView):
         context['gliders'] = GlidersView.objects.all()
         context['glidersprova'] = "prova"
         return context
+
+
+@manufacturer_required
+def add_glider(request):
+    if request.method == 'POST':
+        form = GliderForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            Glider = form.save(commit=False)
+            Glider.maker = request.user.maker
+            #Glider.slug = slugify(Glider.name)
+            Glider.save()
+
+            return redirect('control_panel_manufacture')
+        else:
+            form = GliderForm()
+    return render(request, 'showcase/control_panel_manufacture.html', {'add_glider_form':form})
+
+
+
+
+
+
+#pronti per il macero
 
 class User(TemplateView):
     template_name = 'user.html'

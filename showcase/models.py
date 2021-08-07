@@ -63,7 +63,7 @@ class Size(models.Model):
 
 class GliderReview(models.Model):
     glider = models.ForeignKey(Glider, on_delete=models.CASCADE, related_name='glider_review')
-    person = models.ForeignKey(Person, related_name='reviews', on_delete=models.CASCADE)
+    user = models.ForeignKey(User, related_name='user', on_delete=models.CASCADE)
 
     content = models.TextField(blank=True, null=True)
     stars = models.IntegerField()

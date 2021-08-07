@@ -1,68 +1,86 @@
 {% load static %}
 
 {% block modal_review %}
-    <div class="review-wrapper" id="review{{ glider.id }}">
-        {% for review in glider.glider_review.all %}
 
-        <!-- for review in product.reviews.all
-                <div class="notification space-below">
-                    <p>
-                        <strong>Date: </strong>{{ review.date_added|date:"Y-m-d" }},
-                        <strong>Stars: </strong>{{ review.stars }}
-                    </p>
+    <div class="row justify-content-center">
 
-                     review.content
-                </div> -->
-        {% empty %}
+        <div class="col-lg-.">
 
             <div class="notification space-below">
-                No reviews yet...
-            </div>
+                {% if request.user.is_authenticated and user.is_person%}
+                    <form method="post" action=".">
+                        {% csrf_token %}
 
-        {% endfor %}
+                        <div class="field">
+                            <label>Stars</label>
+
+                            <div clas="control">
+                                <div class="select">
+                                    <select name="stars">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3" selected>3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label>Content</label>
+
+                            <div class="control">
+                                <textarea class="textarea" name="content"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <div class="control">
+                                <button class="button is-success">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                {% else %}
+                    <p>Please sign in to add review!</p>
+                {% endif %}
+
+
+            </div>
+        </div>
     </div>
 
-    <div class="notification space-below">
-        {% if request.user.is_authenticated %}
-            <form method="post" action=".">
-                {% csrf_token %}
+    <div class="review-wrapper" id="review{{ glider.id }}">
 
-                <div class="field">
-                    <label>Stars</label>
+        <div class="row infinite-container">
+            {% for review in glider.glider_review.all %}
 
-                    <div clas="control">
-                        <div class="select">
-                            <select name="stars">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3" selected>3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
+                <div class="col-auto col-sm col-4 mr-2 ml-2 mt-2 mb-2 infinite-item ">
+
+                    <div class="card">
+                        <div class="card-header">
+                            {{ review.user.get_username }}
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title"><strong>Date: </strong>{{ review.date_added|date:"Y-m-d" }},
+                                <strong>Stars: </strong>{{ review.stars }}</h5>
+                            <p class="card-text">{{ review.content }}</p>
                         </div>
                     </div>
+
                 </div>
 
-                <div class="field">
-                    <label>Content</label>
+            {% empty %}
 
-                    <div class="control">
-                        <textarea class="textarea" name="content"></textarea>
-                    </div>
+                <div class="notification space-below">
+                    No reviews yet...
                 </div>
 
-                <div class="field">
-                    <div class="control">
-                        <button class="button is-success">Submit</button>
-                    </div>
-                </div>
-            </form>
-        {% else %}
-            <p>Please sign in to add review!</p>
-        {% endif %}
-
-
+            {% endfor %}
+        </div>
     </div>
+
+
 {% endblock %}
 
 {% load static %}

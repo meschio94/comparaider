@@ -13,5 +13,5 @@ urlpatterns = [
     path('gliders/', GlidersView.as_view(), name='gliders'),
     path('user/', User.as_view(), name='user'),
     path('<int:pk>/manufacture_profile/', ShowManufacturesProfileView.as_view(), name='manufacture_profile'),
-
+    #path('<int:pk>/manufacturer_panel/',name='manufacture_panel')
 ]
