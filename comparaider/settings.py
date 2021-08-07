@@ -136,8 +136,8 @@ AUTH_USER_MODEL = "members.User"
 
 #LOGIN_URL = 'login'
 
-#LOGIN_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'home'
 
-#LOGOUT_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
 
 CRISPY_TEMPLATE_PACK ='bootstrap4'

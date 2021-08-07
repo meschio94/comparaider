@@ -15,4 +15,4 @@ class PersonCreationView(CreateView):
 class LoginView(TemplateView):
     form_class = PersonSignUpForm
     template_name = 'registration/login.html'
-    success_url = reverse_lazy('showcase:home')
+    success_url = reverse_lazy('login')

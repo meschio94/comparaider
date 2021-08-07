@@ -18,6 +18,7 @@ urlpatterns = [
                   # path('accounts/', include('django.contrib.auth.urls')),
                   path('login/', LoginView.as_view(), name='login'),
                   path('signup/', PersonCreationView.as_view(), name='signup'),
+                  #path('logout/', ,name='logut'),
                   # path('accounts/signup/person/', PersonSignUpView.as_view(), name='person_signup'),
                   # path('accounts/signup/teacher/', teachers.TeacherSignUpView.as_view(), name='teacher_signup'),
               ] + static(MEDIA_URL, document_root=MEDIA_ROOT)

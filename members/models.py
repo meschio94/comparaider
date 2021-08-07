@@ -11,7 +11,7 @@ def get_upload_person_image(instance, filename):
 
 class User(AbstractUser):
     email = models.EmailField(_('email address'),blank=False,unique=True)
-    is_person = models.BooleanField(default=False)
+    is_person = models.BooleanField(default=True)
     is_manufacturer = models.BooleanField(default=False)
 
 class Person(models.Model):
