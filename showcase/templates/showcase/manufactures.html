@@ -1,17 +1,50 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block carousel_header %}
 
-{% block content %}
-    <div id="main_slider" class="section carousel slide banner-main" data-ride="carousel">
+    <section>
+        <div id="main_slider" class="section carousel slide banner-main" data-ride="carousel">
+            <!--<ol class="carousel-indicators">
+               <li data-target="#main_slider" data-slide-to="0" class="active"></li>
+               <li data-target="#main_slider" data-slide-to="1"></li>
+               <li data-target="#main_slider" data-slide-to="2"></li>
+            </ol>-->
+            <div class="carousel-inner">
+                <!--<div class="carousel-item active">-->
+                <div class="container">
+                    <div class="row marginii">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                            <div class="carousel-caption ">
+                                <h1>Our <strong class="color">Partners</strong></h1>
+                                <p></p>
+                                <!--<a class="btn btn-lg btn-primary" href="#" role="button">Buy Now</a>
+                                <a class="btn btn-lg btn-primary" href="about.html" role="button">About </a>-->
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                            <div class="img-box">
+                                <figure><img src="{% static 'images/paraglider-intro3.png' %}" alt="img"/></figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--</div>-->
 
-        <div class="carousel-inner">
-            <div class="container">
-                <div class="row marginiismall"></div>
             </div>
+            <!--<a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
+                <i class='fa fa-angle-left'></i></a>
+            <a class="carousel-control-next" href="#main_slider" role="button" data-slide="next">
+                <i class='fa fa-angle-right'></i>
+            </a> -->
         </div>
 
-    </div>
+    </section>
+
+{% endblock %}
+
+{% block content %}
+
 
     <div class="clothes_main section ">
         <div class="container">
