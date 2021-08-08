@@ -4,28 +4,60 @@
 
 {% block content %}
 
-      </section>
+    </section>
     <section>
-    <div id="search" class="search section">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12 ">
+        <div id="search" class="search section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 ">
 
-                   <div class="container mt-5">
-                       <h1>{{ glidersprova }}</h1>
-                       <form method="get">
-   {{myFilter.form}}
-</form>
-                   </div>
+                        <div class="container mt-5">
+                            <h1>{{ glidersprova }}</h1>
+                            <form method="get">
+                                {{ myFilter.form }}
+                            </form>
+                        </div>
 
-                  <div class="container">
+                        <div class="container">
 
-                  </div>
+                            <!-- TABLE -->
+
+                            <table class="table table-striped" id="table_glider">
+                                <thead>
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Year</th>
+                                    <th scope="col">Name</th>
+
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                {% for glider in gliders %}
+                                    <tr>
+                                        <th scope="row">{{ glider.id }}</th>
+                                        <td>{{ glider.year }}</td>
+                                        <td>{{ glider.name }}</td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                                    data-target="">Edit
+                                            </button>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
 
 
-               </div>
+                                </tbody>
+                            </table>
+
+
+                            <!-- END TABLE -->
+                        </div>
+
+
+                    </div>
+                </div>
             </div>
-         </div>
-    </div>
+        </div>
     </section>
 {% endblock %}

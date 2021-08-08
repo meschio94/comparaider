@@ -90,6 +90,17 @@ class GlidersView(ListView):
         context['glidersprova'] = "prova"
         return context
 
+@manufacturer_required #@login_required
+def manufacturer_admin(request):
+    manufacturer = request.user
+    maker = manufacturer.manufacturer_user
+    gliders = maker.manufacturer_glider.all()
+
+
+
+
+    return render(request, 'showcase/control_panel_manufacture.html', {'manufacturer':maker, 'gliders':gliders})
+
 
 @manufacturer_required
 def add_glider(request):

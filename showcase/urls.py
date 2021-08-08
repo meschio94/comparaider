@@ -1,5 +1,5 @@
 from django.urls import path
-
+from . import views
 from showcase.views import *
 from comparaider.views import Homepage
 # importarsi le view che useremo mano a mano
@@ -13,5 +13,5 @@ urlpatterns = [
     path('gliders/', GlidersView.as_view(), name='gliders'),
     path('user/', User.as_view(), name='user'),
     path('<int:pk>/manufacture_profile/', ShowManufacturesProfileView.as_view(), name='manufacture_profile'),
-    #path('<int:pk>/manufacturer_panel/',name='manufacture_panel')
+    path('manufacturer_panel/', views.manufacturer_admin ,name='manufacture_panel')
 ]

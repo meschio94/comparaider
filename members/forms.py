@@ -5,7 +5,7 @@ from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 from django.urls import reverse_lazy
 
-from members.models import User,Person
+from members.models import User
 
 class PersonSignUpForm(UserCreationForm):
 
