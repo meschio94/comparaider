@@ -25,7 +25,7 @@ class Manufactures(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(Manufactures, self).get_context_data(**kwargs)
-        model = Maker.objects.all()
+        model = Maker.objects.all().order_by('name')
 
         page = self.request.GET.get('page', 1)
         paginator = Paginator(model, 2)
@@ -165,6 +165,29 @@ def edit_glider(request, pk):
         else:
             form = GliderForm(instance=glider)
     return render(request, 'showcase/control_panel_edit_glider.html', {'edit_glider_form':form, 'glider':glider})
+
+@manufacturer_required
+def edit_size(request, pkg, pks):
+
+    user = request.user
+    manufacturer = user.manufacturer_user
+    glider = manufacturer.manufacturer_glider.get(pk=pkg)
+    size = glider.glider_size.get(pk=pks)
+    form = SizeForm(request.POST or None) #add
+
+    if request.method == 'POST':
+        form = SizeForm(request.POST, request.FILES, instance=size)
+
+
+
+        if form.is_valid():
+            form.save()
+
+            return redirect('showcase:edit_glider', pk=pkg)
+        else:
+            form = SizeForm(instance=size)
+    return render(request, 'showcase/control_panel_edit_size.html', {'edit_size_form':form, 'glider':glider, 'size':size})
+
 
 @manufacturer_required
 def edit_info(request):

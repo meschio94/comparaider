@@ -46,9 +46,7 @@
                         <a href="{% url 'showcase:add_size' glider.id %}" class="btn btn-primary" >Add Size</a>
                             {% for size in glider.glider_size.all %}
                                 <th scope="col">
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="">
-                                        Edit
-                                    </button>
+                                    <a href="{% url 'showcase:edit_size' glider.id size.id %}" class="btn btn-primary" >Edit</a>
                                 </th>
                             {% endfor %}
                         </tr>

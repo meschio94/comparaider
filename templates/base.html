@@ -27,6 +27,11 @@
               integrity="sha512-SZgE3m1he0aEF3tIxxnz/3mXu/u/wlMNxQSnE0Cni9j/O8Gs+TjM9tm1NX34nRQ7GiLwUEzwuE3Wv2FLz2667w=="
               crossorigin="anonymous"/>
 
+
+        <link href=https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.20/css/dataTables.bootstrap4.min.css
+              rel=stylesheet>
+
+
         <!-- style css -->
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
@@ -128,6 +133,15 @@
 <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
 <script src="{% static 'js/infinite.min.js' %}"></script>
 <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+
+<script src=https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.20/js/jquery.dataTables.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.20/js/dataTables.bootstrap4.min.js></script>
+
+<script>
+    $(document).ready(function () {
+        $('#table_glider').DataTable();
+    });
+</script>
 
 <script>
     $(document).ready(function () {
