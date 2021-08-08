@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+    <div id="plant" class="section  product">
+        <div class="container">
+            <div class="row justify-content-center">
+
+                <div class="col-lg-6">
+
+
+                    <div class="col text-center">
+
+                        <form method="post" action=".">
+                            {% csrf_token %}
+
+                            <div class="field">
+                                <label>Manufacturer name</label>
+
+                                <div class="control">
+                                    <input type="text" name="name" id="id_name" value="{{ manufacturer.name }}" class="input">
+                                </div>
+
+                                <p class="help">This is not the same as the username!</p>
+                            </div>
+
+                            <div class="field">
+                                <label>TextIntro</label>
+
+                                <div class="control">
+                                    <input type="email" name="email" id="id_email" value="{{ vendor.textIntro }}"
+                                           class="input">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <button class="button is-dark is-uppercase">Save changes</button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

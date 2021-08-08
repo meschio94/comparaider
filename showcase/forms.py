@@ -13,4 +13,5 @@ class GliderForm(ModelForm):
 
 class SizeForm(ModelForm):
     class Meta:
-        model: Size
+        model = Size
+        exclude = ['glider']

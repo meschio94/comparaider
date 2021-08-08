@@ -90,35 +90,105 @@ class GlidersView(ListView):
         context['glidersprova'] = "prova"
         return context
 
-@manufacturer_required #@login_required
+@manufacturer_required
 def manufacturer_admin(request):
-    manufacturer = request.user
-    maker = manufacturer.manufacturer_user
-    gliders = maker.manufacturer_glider.all()
+    user = request.user
+    manufacturer = user.manufacturer_user
+    gliders = manufacturer.manufacturer_glider.all()
 
 
 
 
-    return render(request, 'showcase/control_panel_manufacture.html', {'manufacturer':maker, 'gliders':gliders})
+    return render(request, 'showcase/control_panel_manufacture.html', {'manufacturer':manufacturer, 'gliders':gliders})
 
 
 @manufacturer_required
 def add_glider(request):
+
+    form = GliderForm(request.POST or None) #add
     if request.method == 'POST':
         form = GliderForm(request.POST, request.FILES)
 
         if form.is_valid():
             Glider = form.save(commit=False)
-            Glider.maker = request.user.maker
-            #Glider.slug = slugify(Glider.name)
+            user = request.user
+            manufacturer = user.manufacturer_user
+            Glider.maker = manufacturer
             Glider.save()
 
-            return redirect('control_panel_manufacture')
+            return redirect('showcase:manufacture_panel')
         else:
             form = GliderForm()
-    return render(request, 'showcase/control_panel_manufacture.html', {'add_glider_form':form})
+    return render(request, 'showcase/control_panel_add_glider.html', {'add_glider_form':form})
+
+@manufacturer_required
+def add_size(request,pk):
+
+    form = SizeForm(request.POST or None) #add
+    if request.method == 'POST':
+        form = SizeForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            Size = form.save(commit=False)
+            user = request.user
+            manufacturer = user.manufacturer_user
+            glider = manufacturer.manufacturer_glider.get(pk=pk)
+
+            Size.glider = glider
+            #Size.glider = Glider
+            Size.save()
+
+            return redirect('showcase:edit_glider', pk=pk)
+        else:
+            form = SizeForm()
+    return render(request, 'showcase/control_panel_add_size.html', {'add_size_form':form})
 
 
+@manufacturer_required
+def edit_glider(request, pk):
+
+    user = request.user
+    manufacturer = user.manufacturer_user
+    glider = manufacturer.manufacturer_glider.get(pk=pk)
+
+    form = GliderForm(request.POST or None) #add
+
+    if request.method == 'POST':
+        form = GliderForm(request.POST, request.FILES, instance=glider)
+
+
+
+        if form.is_valid():
+            form.save()
+
+            return redirect('showcase:manufacture_panel')
+        else:
+            form = GliderForm(instance=glider)
+    return render(request, 'showcase/control_panel_edit_glider.html', {'edit_glider_form':form, 'glider':glider})
+
+@manufacturer_required
+def edit_info(request):
+    manufacturer = request.user
+    #manufacturer = user.manufacturer_user
+
+    if request.method == 'POST':
+        name = request.POST.get('name','')
+        logoImage = request.POST.get('logoImage','')
+        textIntro = request.POST.get('textIntro','')
+
+        if name:
+
+            manufacturer.logoImage = logoImage
+            manufacturer.logoImage.save()
+
+            manufacturer.textIntro = textIntro
+            manufacturer.textIntro.save()
+
+            manufacturer.name = name
+            manufacturer.save()
+            return redirect('showcase:manufacture_panel')
+
+    return render(request, 'showcase/control_panel_add_glider.html', {'edit_info':manufacturer})
 
 
 

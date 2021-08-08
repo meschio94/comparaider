@@ -22,7 +22,7 @@ def get_upload_maker_logo_image(instance, filename):
 
 class Maker(models.Model):
     name = models.CharField(max_length=255)
-    logoImage = models.ImageField(default=None, upload_to=get_upload_maker_logo_image)
+    logoImage = models.ImageField(default=None,blank=True, null=True, upload_to=get_upload_maker_logo_image)
     textIntro = models.TextField(blank=True, null=True)
     account = models.OneToOneField(User, related_name='manufacturer_user', null=True, blank=True,
                                    on_delete=models.SET_NULL)

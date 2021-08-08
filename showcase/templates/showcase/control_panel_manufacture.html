@@ -2,21 +2,43 @@
 {% load static %}
 
 
+{% block carousel_header %}
+    <div id="main_slider" class="section carousel slide banner-main" data-ride="carousel">
+
+        <!--<div class="carousel-item active">-->
+        <div class="container">
+            <div class="row marginii">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                    <div class="carousel-caption ">
+                        <h1>Welcome <strong class="color">{{ manufacturer.name }}</strong> admin</h1>
+
+
+                        <a class="btn btn-lg btn-primary" href={% url 'showcase:edit_info' %} role="button">Edit Info </a>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                    <div class="img-box">
+                        <figure><img src="{{ manufacturer.logoImage.url }}" alt="img"/></figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--</div>-->
+
+    </div>
+{% endblock %}
+
+
+
 {% block content %}
 
-    </section>
+
     <section>
         <div id="search" class="search section">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 ">
 
-                        <div class="container mt-5">
-                            <h1>{{ glidersprova }}</h1>
-                            <form method="get">
-                                {{ myFilter.form }}
-                            </form>
-                        </div>
 
                         <div class="container">
 
@@ -28,7 +50,10 @@
                                     <th scope="col">ID</th>
                                     <th scope="col">Year</th>
                                     <th scope="col">Name</th>
+                                    <th>
+                                        <a href="{% url 'showcase:add_glider' %}" class="btn btn-primary" >Add Glider</a>
 
+                                    </th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -39,9 +64,7 @@
                                         <td>{{ glider.year }}</td>
                                         <td>{{ glider.name }}</td>
                                         <td>
-                                            <button type="button" class="btn btn-primary" data-toggle="modal"
-                                                    data-target="">Edit
-                                            </button>
+                                            <a href="{% url 'showcase:edit_glider' glider.id %}" class="btn btn-primary" >Edit</a>
                                         </td>
                                     </tr>
                                 {% endfor %}

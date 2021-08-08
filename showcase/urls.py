@@ -13,5 +13,9 @@ urlpatterns = [
     path('gliders/', GlidersView.as_view(), name='gliders'),
     path('user/', User.as_view(), name='user'),
     path('<int:pk>/manufacture_profile/', ShowManufacturesProfileView.as_view(), name='manufacture_profile'),
-    path('manufacturer_panel/', views.manufacturer_admin ,name='manufacture_panel')
+    path('manufacturer_panel/', views.manufacturer_admin ,name='manufacture_panel'),
+    path('add_glider/', views.add_glider, name='add_glider'),
+    path('add_size/<int:pk>/', views.add_size, name='add_size'),
+    path('edit_glider/<int:pk>/', views.edit_glider, name='edit_glider'),
+    path('edit_info/', views.edit_info, name='edit_info')
 ]
