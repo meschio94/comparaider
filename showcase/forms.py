@@ -1,5 +1,6 @@
 from django.forms import ModelForm
-from .models import Maker,Glider,Size
+from .models import Maker, Glider, Size
+
 
 class MakerEditForm(ModelForm):
     class Meta:

@@ -9,6 +9,7 @@ from django.views.generic import TemplateView, ListView
 
 from showcase.filters import GliderFilter, SizeFilter
 from showcase.models import Maker,Glider,Size
+from reviews.models import GliderReview
 from showcase.views import gliders
 from queryset_sequence import QuerySetSequence
 from itertools import chain
@@ -38,6 +39,7 @@ class Homepage(TemplateView):
         context['mySizeFilter'] = mySizeFilter
         context['manufactures'] = get_manufactures()
         context['sizes'] = Size.objects.all()
+        context['reviews'] = GliderReview.objects.all()
 
         page = self.request.GET.get('page', 1)
         paginator = Paginator(model, 2)

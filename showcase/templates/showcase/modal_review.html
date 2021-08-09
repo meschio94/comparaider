@@ -2,55 +2,38 @@
 
 {% block modal_review %}
 
-    <div class="row justify-content-center">
+    <div class="review-wrapper" id="review{{ glider.id }}">
 
-        <div class="col-lg-.">
+        <div class="row justify-content-center">
 
-            <div class="notification space-below">
-                {% if request.user.is_authenticated and user.is_person%}
-                    <form method="post" action=".">
-                        {% csrf_token %}
+            <div class="col-lg-.">
 
-                        <div class="field">
-                            <label>Stars</label>
+                <div class="notification space-below">
 
-                            <div clas="control">
-                                <div class="select">
-                                    <select name="stars">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3" selected>3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                    </select>
-                                </div>
-                            </div>
+                        {% if user.is_authenticated and user.is_person %}
+                            {% if user.user_review %}
+                                 <button type="button" class="btn btn-primary"  >Edit Review</button>
+
+                                {% else %}
+
+                                <a href="{% url 'reviews:add_review' glider.id %}" class="btn btn-primary" >Add Review</a>
+
+                                {% endif %}
+
+                        
+
+
+                    {% else %}
+                        <div class="text-center">
+                            <p>Please sign in to add review!</p>
                         </div>
-
-                        <div class="field">
-                            <label>Content</label>
-
-                            <div class="control">
-                                <textarea class="textarea" name="content"></textarea>
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <div class="control">
-                                <button class="button is-success">Submit</button>
-                            </div>
-                        </div>
-                    </form>
-                {% else %}
-                    <p>Please sign in to add review!</p>
-                {% endif %}
+                    {% endif %}
 
 
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="review-wrapper" id="review{{ glider.id }}">
 
         <div class="row infinite-container">
             {% for review in glider.glider_review.all %}
@@ -71,6 +54,7 @@
                 </div>
 
             {% empty %}
+                <a href="{% url 'reviews:add_review' glider.id %}" class="btn btn-primary" >Add Review</a>
 
                 <div class="notification space-below">
                     No reviews yet...

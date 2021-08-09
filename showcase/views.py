@@ -96,9 +96,6 @@ def manufacturer_admin(request):
     manufacturer = user.manufacturer_user
     gliders = manufacturer.manufacturer_glider.all()
 
-
-
-
     return render(request, 'showcase/control_panel_manufacture.html', {'manufacturer':manufacturer, 'gliders':gliders})
 
 
@@ -135,7 +132,6 @@ def add_size(request,pk):
             glider = manufacturer.manufacturer_glider.get(pk=pk)
 
             Size.glider = glider
-            #Size.glider = Glider
             Size.save()
 
             return redirect('showcase:edit_glider', pk=pk)
@@ -177,8 +173,6 @@ def edit_size(request, pkg, pks):
 
     if request.method == 'POST':
         form = SizeForm(request.POST, request.FILES, instance=size)
-
-
 
         if form.is_valid():
             form.save()

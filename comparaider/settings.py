@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django_filters',
     'django.contrib.sites',
     'crispy_forms',
-    'members'
+    'members',
+    'reviews'
 ]
 
 MIDDLEWARE = [

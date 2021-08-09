@@ -6,6 +6,7 @@ from django.db import models
 
 from django.urls import reverse
 from members.models import User
+
 import django.utils.timezone as timezone
 
 import showcase.fields
@@ -66,12 +67,3 @@ class Size(models.Model):
     def __str__(self):
         return f"{self.glider.name} : {self.size}"
 
-
-class GliderReview(models.Model):
-    glider = models.ForeignKey(Glider, on_delete=models.CASCADE, related_name='glider_review')
-    user = models.ForeignKey(User, related_name='user', on_delete=models.CASCADE)
-
-    content = models.TextField(blank=True, null=True)
-    stars = models.IntegerField()
-
-    date_added = models.DateTimeField(auto_now_add=True)
