@@ -69,7 +69,7 @@ class Homepage(TemplateView):
             size = Size.objects.get(id=sizeId)
             # Get user account information
             try:
-                user = request.user
+                user = request.user.user
             except:
                 device = request.COOKIES['device']
                 user, created = User.objects.get_or_create(device=device)

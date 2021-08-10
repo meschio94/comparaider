@@ -17,5 +17,5 @@ app_name = 'comparetool'
 
 urlpatterns = [
                   path('compare/', views.comparator, name='compare'),
-
-                ] + static(MEDIA_URL, document_root=MEDIA_ROOT)
+                  path('remove/', views.remove_size, name='remove_size'),
+              ] + static(MEDIA_URL, document_root=MEDIA_ROOT)

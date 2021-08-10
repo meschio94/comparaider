@@ -2,6 +2,8 @@ from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, DetailView, View, TemplateView
+
+from comparetool.models import CompareItems
 from .filters import GliderFilter
 from .models import Maker, Glider, Size
 from members.decorators import manufacturer_required, person_required
@@ -11,6 +13,11 @@ from .forms import MakerEditForm,GliderForm,SizeForm
 
 class IndexView(ListView):
     template_name = 'showcase/index.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(Prova, self).get_context_data(**kwargs)
+        context['compareItems'] = CompareItems.objects.all()
+        return context
 
 class Prova(TemplateView):
     template_name = 'showcase/prova.html'

@@ -29,6 +29,7 @@ urlpatterns = [
     path('', Homepage.as_view(), name='home'),
     path('admin/', admin.site.urls),
     path('showcase/', include('showcase.urls')),
+    path('showcase/', include('django.contrib.auth.urls')),
     path('members/', include('django.contrib.auth.urls')),
     path('members/', include('members.urls')),
     path('reviews/',include('reviews.urls')),

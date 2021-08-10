@@ -5,119 +5,137 @@
 
 {% block content %}
 
+    {% if compareItems.size_item.all %}
 
-
-    <div id="plant" class="section  product">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 ">
-                    <div class="titlepage">
-                        <div class="col text-center">
-                            <h2> Login <strong class="black"> into your account </strong></h2>
+        <div id="plant" class="section  product">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 ">
+                        <div class="titlepage">
+                            <div class="col text-center">
+                                <h2> Compared <strong class="black"> gliders: </strong></h2>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
 
 
 
 
-    <div id="plant" class="section  product">
-        <div class="container">
-            <div class="row justify-content-center">
+        <div id="plant" class="section  product">
+            <div class="container">
+                <div class="row justify-content-center">
 
-                <div class="col-lg-6">
+                    <div class="col-lg-6">
 
-                    <!-- TABLE -->
+                        <!-- TABLE -->
 
-                    <table class="table table-striped" id="tableComparator">
-                        <thead>
-                        <tr>
-                            <th scope="col"></th>
-                            {% for size in compareItems.size_item.all %}
-                                <th scope="col">
+                        <table class="table table-striped" id="tableComparator">
+                            <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                {% for size in compareItems.size_item.all %}
+                                    <th scope="col">
 
-                                    <form method="POST">
-                                        {% csrf_token %}
-
-                                        <input class="btn btn-primary" type="submit" value="Remove">
-                                    </form>
-
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="">
-                                        Remove
-                                    </button>
-                                </th>
-                            {% endfor %}
-                        </tr>
-                        <tr>
-                            <th scope="col">Manufacturer</th>
-                            {% for size in compareItems.size_item.all %}
-                                <th scope="col">{{ size.size.glider.maker.name }}</th>
-                            {% endfor %}
-                        </tr>
-                         <tr>
-                            <th scope="col">Name</th>
-                            {% for size in compareItems.size_item.all %}
-                                <th scope="col">{{ size.size.glider.name }}</th>
-                            {% endfor %}
-                        </tr>
-                        <tr>
-                            <th scope="col">Size</th>
-                            {% for size in compareItems.size_item.all %}
-                                <th scope="col">{{ size.size.size }}</th>
-                            {% endfor %}
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <th scope="row">Certification</th>
-                            {% for size in compareItems.size_item.all %}
-                                <th scope="col">{{ size.size.certification }}</th>
-                            {% endfor %}
-                        </tr>
-                        <tr>
-                            <th scope="row">Takeoff Weight</th>
-                            {% for size in compareItems.size_item.all %}
-                                <th scope="col">{{ size.size.takeoffWeightMin }}-{{ size.size.takeoffWeightMax }}</th>
-                            {% endfor %}
-                        </tr>
-                        <tr>
-                            <th scope="row">Cells</th>
-                            {% for size in compareItems.size_item.all %}
-                                <th scope="col">{{ size.size.cells }}</th>
-                            {% endfor %}
-                        </tr>
-                        <tr>
-                            <th scope="row">Glider Weight</th>
-                            {% for size in compareItems.size_item.all %}
-                                <th scope="col">{{ size.size.gliderWeight }}</th>
-                            {% endfor %}
-                        </tr>
-                        </tbody>
-                    </table>
+                                        <form method="POST" action="{% url "comparetool:remove_size" %}">
+                                            {% csrf_token %}
+                                            <input type="hidden" name="sizeId" value="{{ size.id }}"/>
+                                            <input class="btn btn-primary" type="submit" value="Remove">
+                                        </form>
 
 
-                <!-- END TABLE -->
+                                    </th>
+                                {% endfor %}
+                            </tr>
+                            <tr>
+                                <th scope="col">Manufacturer</th>
+                                {% for size in compareItems.size_item.all %}
+                                    <th scope="col">{{ size.size.glider.maker.name }}</th>
+                                {% endfor %}
+                            </tr>
+                            <tr>
+                                <th scope="col">Name</th>
+                                {% for size in compareItems.size_item.all %}
+                                    <th scope="col">{{ size.size.glider.name }}</th>
+                                {% endfor %}
+                            </tr>
+                            <tr>
+                                <th scope="col">Size</th>
+                                {% for size in compareItems.size_item.all %}
+                                    <th scope="col">{{ size.size.size }}</th>
+                                {% endfor %}
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">Certification</th>
+                                {% for size in compareItems.size_item.all %}
+                                    <th scope="col">{{ size.size.certification }}</th>
+                                {% endfor %}
+                            </tr>
+                            <tr>
+                                <th scope="row">Takeoff Weight</th>
+                                {% for size in compareItems.size_item.all %}
+                                    <th scope="col">{{ size.size.takeoffWeightMin }}-{{ size.size.takeoffWeightMax }}</th>
+                                {% endfor %}
+                            </tr>
+                            <tr>
+                                <th scope="row">Cells</th>
+                                {% for size in compareItems.size_item.all %}
+                                    <th scope="col">{{ size.size.cells }}</th>
+                                {% endfor %}
+                            </tr>
+                            <tr>
+                                <th scope="row">Glider Weight</th>
+                                {% for size in compareItems.size_item.all %}
+                                    <th scope="col">{{ size.size.gliderWeight }}</th>
+                                {% endfor %}
+                            </tr>
+                            </tbody>
+                        </table>
+
+
+                        <!-- END TABLE -->
+
+                    </div>
+
 
                 </div>
+            </div>
+        </div>
 
-
+        <div id="plant" class="section  product">
+            <div class="container">
 
             </div>
         </div>
-    </div>
 
-    <div id="plant" class="section  product">
-        <div class="container">
+        {% else %}
 
+         <div id="plant" class="section  product">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 ">
+                        <div class="titlepage">
+                            <div class="col text-center">
+                                <h2> <strong class="black"> No </strong> Gliders <strong class="black"> inside your list ! </strong></h2>
+                                <p>Get back to home and add some gliders!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+
+    {% endif %}
+
+{% endblock %}
 
 
-
+{% block footer %}
 {% endblock %}
 
 {% load static %}
