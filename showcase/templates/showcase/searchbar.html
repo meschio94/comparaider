@@ -30,6 +30,9 @@
                                     {{ myFilter.form.name|as_crispy_field }}
                                 </div>
                                 <div class="col-lg-6 col-md-12">
+                                    {{ myFilter.form.year|as_crispy_field }}
+                                </div>
+                                <div class="col-lg-6 col-md-12">
                                     {{ myFilter.form.maker|as_crispy_field }}
                                 </div>
                                 <div class="col-lg-6 col-md-12">
@@ -44,7 +47,7 @@
                                     </button>
                                 </div>
                             </div>
-
+                            
                             <div class="row">
                                 {{ mySizeFilter.form|crispy }}
                             </div>
