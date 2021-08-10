@@ -8,7 +8,14 @@
             <th scope="col"></th>
             {% for size in glider.glider_size.all %}
                 <th scope="col">
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="">Compare</button>
+
+                    <form method="POST" action=".">
+                        {% csrf_token %}
+                        <input type="hidden" name="sizeId" value="{{ size.id }}" />
+                        <input class="btn btn-primary" type="submit" value="Compare">
+                    </form>
+
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="">{{ size.size }}</button>
                 </th>
             {% endfor %}
         </tr>

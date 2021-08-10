@@ -11,8 +11,15 @@
                 <div class="notification space-below">
 
                         {% if user.is_authenticated and user.is_person %}
-                            {% if user.user_review %}
-                                 <button type="button" class="btn btn-primary"  >Edit Review</button>
+
+
+
+
+                            {% for x in user.user_review.all%}
+
+                                {% if x.glider.id == glider.id  %}
+
+                                <a href="{% url 'reviews:edit_review' glider.id x.id %}" class="btn btn-primary" >Edit Review</a>
 
                                 {% else %}
 
@@ -20,7 +27,9 @@
 
                                 {% endif %}
 
-                        
+                                {% endfor %}
+
+
 
 
                     {% else %}
@@ -54,7 +63,7 @@
                 </div>
 
             {% empty %}
-                <a href="{% url 'reviews:add_review' glider.id %}" class="btn btn-primary" >Add Review</a>
+                <a href="{% url 'reviews:add_review' glider.id %}" class="btn btn-primary" >$Add Review</a>
 
                 <div class="notification space-below">
                     No reviews yet...

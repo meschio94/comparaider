@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect
 from members.decorators import person_required
 from reviews.forms import ReviewCreation
 from showcase.models import Glider
+from .models import GliderReview
 
 
 @person_required
@@ -25,3 +26,26 @@ def add_review(request, pk):
         else:
             form = ReviewCreation()
     return render(request, 'reviews/add_review.html', {'add_review_form':form, 'glider':glider})
+
+@person_required
+def edit_review(request, pkg, pkr):
+
+    user = request.user
+
+    glider = Glider.objects.get(pk=pkg)
+    review = glider.glider_review.get(pk=pkr)
+
+    form = ReviewCreation(request.POST or None) #add
+
+
+
+    if request.method == 'POST':
+        form = ReviewCreation(request.POST, request.FILES, instance=review)
+
+        if form.is_valid():
+            form.save()
+
+            return redirect('showcase:home')
+        else:
+            form = ReviewCreation()
+    return render(request, 'reviews/edit_review.html', {'edit_review_form':form, 'glider':glider})

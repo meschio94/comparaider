@@ -4,12 +4,14 @@ from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.http import HttpResponse, HttpResponseRedirect
 
 # _logger = logging.getLogger(__name__)
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, ListView
 
+from comparetool.models import SizeItem, CompareItems
 from showcase.filters import GliderFilter, SizeFilter
 from showcase.models import Maker,Glider,Size
 from reviews.models import GliderReview
+from members.models import User
 from showcase.views import gliders
 from queryset_sequence import QuerySetSequence
 from itertools import chain
@@ -60,6 +62,26 @@ class Homepage(TemplateView):
         context['gliders'] = gliders
         return context
 
+    def post(self, request, *args, **kwargs):
+
+        if request.method == 'POST':
+            sizeId = request.POST['sizeId']
+            size = Size.objects.get(id=sizeId)
+            # Get user account information
+            try:
+                user = request.user
+            except:
+                device = request.COOKIES['device']
+                user, created = User.objects.get_or_create(device=device)
+
+            compareItems, created = CompareItems.objects.get_or_create(user=user, complete=False)
+            sizeItem, created = SizeItem.objects.get_or_create(compareItems=compareItems, size=size)
+
+            sizeItem.save()
+
+            return redirect('comparetool:compare')
+
+        return render(request, 'showcase/index.html')
 
 
 def get_gliders():

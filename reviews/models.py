@@ -2,6 +2,8 @@ from django.db import models
 
 from showcase.models import Glider
 from members.models import User
+
+
 # Create your models here.
 
 
@@ -13,3 +15,10 @@ class GliderReview(models.Model):
     stars = models.IntegerField()
 
     date_added = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=['user', 'glider'],
+                name="a user can have only one review per glider", )
+        ]

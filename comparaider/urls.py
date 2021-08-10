@@ -32,6 +32,7 @@ urlpatterns = [
     path('members/', include('django.contrib.auth.urls')),
     path('members/', include('members.urls')),
     path('reviews/',include('reviews.urls')),
+    path('compare/',include('comparetool.urls'))
     #path('glider/', GliderListView.as_view(), name='gliderlist'),
 
 ] + static(MEDIA_URL, document_root=MEDIA_ROOT)
