@@ -34,7 +34,7 @@ class Homepage(TemplateView):
 
         #query = QuerySetSequence(myFilter.qs,mySizeFilter.qs)
 
-        model = myFilter.qs
+        model = myFilter
 
         #context['gliders'] = model
         context['myFilter'] = myFilter
@@ -44,7 +44,7 @@ class Homepage(TemplateView):
         context['reviews'] = GliderReview.objects.all()
 
         page = self.request.GET.get('page', 1)
-        paginator = Paginator(model, 2)
+        paginator = Paginator(model.qs, 2)
 
         #parte paginatore con numeri manuale
         #page_number = self.request.GET.get('page')

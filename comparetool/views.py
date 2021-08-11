@@ -11,7 +11,7 @@ def comparator(request):
         user = request.user.user
     except:
         device = request.COOKIES['device']
-        user, created = User.objects.get_or_create(device=device)
+        user, created = User.objects.get_or_create(device=device, username=device, email=device)
 
     compareItems, created = CompareItems.objects.get_or_create(user=user, complete=False)
 

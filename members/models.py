@@ -12,7 +12,7 @@ def get_upload_person_image(instance, filename):
 
 
 class User(AbstractUser):
-    email = models.EmailField(_('email address'),blank=False,unique=True)
+    email = models.EmailField(_('email address'),blank=False)
     device = models.CharField(max_length=200, null=True, blank=True)
     is_person = models.BooleanField(default=True)
     is_manufacturer = models.BooleanField(default=False)

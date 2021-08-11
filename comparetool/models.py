@@ -9,6 +9,9 @@ class CompareItems(models.Model):
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
     complete = models.BooleanField(default=False)
 
+    def __str__(self):
+        return f"{self.user}"
+
     @property
     def get_size_items(self):
         items = self.SizeItem_set.all()

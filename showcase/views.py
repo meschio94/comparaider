@@ -152,6 +152,7 @@ def edit_glider(request, pk):
 
     user = request.user
     manufacturer = user.manufacturer_user
+    glider = get_object_or_404(manufacturer.manufacturer_glider, pk=pk)
     glider = manufacturer.manufacturer_glider.get(pk=pk)
 
     form = GliderForm(request.POST or None) #add
@@ -174,6 +175,7 @@ def edit_size(request, pkg, pks):
 
     user = request.user
     manufacturer = user.manufacturer_user
+    glider = get_object_or_404(manufacturer.manufacturer_glider, pk=pkg)
     glider = manufacturer.manufacturer_glider.get(pk=pkg)
     size = glider.glider_size.get(pk=pks)
     form = SizeForm(request.POST or None) #add
@@ -189,6 +191,29 @@ def edit_size(request, pkg, pks):
             form = SizeForm(instance=size)
     return render(request, 'showcase/control_panel_edit_size.html', {'edit_size_form':form, 'glider':glider, 'size':size})
 
+@manufacturer_required
+def remove_size(request):
+
+
+    if request.method == 'POST':
+        gliderPk = request.POST['gliderPk']
+        gliderId = request.POST['gliderId']
+        sizeId = request.POST['sizeId']
+
+        user = request.user
+        manufacturer = user.manufacturer_user
+        glider = get_object_or_404(manufacturer.manufacturer_glider, pk=gliderPk)
+
+
+
+        size = Size.objects.filter(id=sizeId).delete()
+
+
+
+        return redirect('showcase:edit_glider', pk=gliderPk)
+
+
+    return render(request, 'showcase/control_panel_edit_glider.html')
 
 @manufacturer_required
 def edit_info(request):

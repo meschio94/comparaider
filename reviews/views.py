@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 # Create your views here.
 from members.decorators import person_required
@@ -34,6 +34,9 @@ def edit_review(request, pkg, pkr):
 
     glider = Glider.objects.get(pk=pkg)
     review = glider.glider_review.get(pk=pkr)
+
+    review = get_object_or_404(user.user_review, pk=review.pk)
+    review = user.user_review.get(pk=review.pk)
 
     form = ReviewCreation(request.POST or None) #add
 
