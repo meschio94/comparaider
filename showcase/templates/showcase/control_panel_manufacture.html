@@ -2,6 +2,7 @@
 {% load static %}
 
 
+
 {% block carousel_header %}
     <div id="main_slider" class="section carousel slide banner-main" data-ride="carousel">
 
@@ -32,73 +33,83 @@
 
 
 {% block content %}
+    <link href=https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.20/css/dataTables.bootstrap4.min.css
+          rel=stylesheet>
 
     <!-- OVVERIDE <link href=https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css rel=stylesheet> -->
 
 
-    <section>
-        <div id="search" class="search section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 ">
 
 
-                        <div class="container">
-
-                            <!-- TABLE -->
 
 
-                            <table cellspacing=0 class="table table-bordered table-hover table-inverse table-striped" id=table_glider width=100%>
-                                <thead>
-                                <tr>
-                                    <th scope="col">ID</th>
-                                    <th scope="col">Year</th>
-                                    <th scope="col">Name</th>
-                                    <th>
-                                        <a href="{% url 'showcase:add_glider' %}" class="btn btn-primary">Add Glider</a>
+    <div class="container">
 
-                                    </th>
-                                <tfoot>
-
-                                </thead>
-                                <tbody>
-
-                                {% for glider in gliders %}
-                                    <tr>
-                                        <th scope="row">{{ glider.id }}</th>
-                                        <td>{{ glider.year }}</td>
-                                        <td>{{ glider.name }}</td>
-                                        <td>
-                                            <a href="{% url 'showcase:edit_glider' glider.id %}"
-                                               class="btn btn-primary">Edit</a>
-                                        </td>
-                                    </tr>
-                                {% endfor %}
+        <!-- TABLE -->
 
 
-                                </tbody>
-                            </table>
+        <table class="table table-bordered table-hover table-inverse table-striped"
+               id=tableGliderAdmin>
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Year</th>
+                <th scope="col">Name</th>
+                <th scope="col">
+                    <a href="{% url 'showcase:add_glider' %}" class="btn btn-success"
+                       style="width:100%">Add Glider</a>
+
+                </th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
 
 
-                            <!-- END TABLE -->
-                        </div>
+
+             <tbody>
+            {% for glider in gliders %}
+
+                <tr>
+                    <th>{{ glider.id }}</th>
+                    <td>{{ glider.year }}</td>
+                    <td>{{ glider.name }}</td>
+                    <td style="width:20%">
+                        <a href="{% url 'showcase:edit_glider' glider.id %}"
+                           class="btn btn-warning" style="width:100%">Edit</a>
+                    </td>
+                    <td style="width:20%">
+                        <form method="POST" action="{% url 'showcase:remove_glider' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="gliderPk" value="{{ glider.pk }}"/>
+                            <input class="btn btn-danger" type="submit" style="width:100%" value="Remove">
+                        </form>
+                    </td>
+
+                </tr>
+            {% endfor %}
+            </tbody>
+
+        </table>
 
 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        <!-- END TABLE -->
+    </div>
 
 
+
+
+
+
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js></script>
     <script src=https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.20/js/jquery.dataTables.min.js></script>
     <script src=https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.20/js/dataTables.bootstrap4.min.js></script>
 
     <script>
         $(document).ready(function () {
-            $('#table_glider').DataTable();
+            $('#tableGliderAdmin').DataTable();
         });
     </script>
+
 
 {% endblock %}
 

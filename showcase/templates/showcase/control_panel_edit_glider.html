@@ -43,10 +43,10 @@
                         <thead>
                         <tr>
                             <th scope="col"></th>
-                            <a href="{% url 'showcase:add_size' glider.id %}" class="btn btn-primary">Add Size</a>
+                            <a href="{% url 'showcase:add_size' glider.id %}" class="btn btn-success btn-block" >Add Size</a>
                             {% for size in glider.glider_size.all %}
                                 <th scope="col">
-                                    <a href="{% url 'showcase:edit_size' glider.id size.id %}" class="btn btn-primary">Edit</a>
+                                    <a href="{% url 'showcase:edit_size' glider.id size.id %}" class="btn btn-warning" style="width:100%">Edit</a>
                                 </th>
 
 
@@ -54,16 +54,20 @@
                         </tr>
 
                         <tr>
-                            <th scope="col"></th>
+                            <th scope="col "></th>
                             {% for size in glider.glider_size.all %}
-                                <th scope="col">
+                                <th scope="col text-center">
+
                                     <form method="POST" action="{% url "showcase:remove_size" %}">
                                         {% csrf_token %}
                                         <input type="hidden" name="gliderPk" value="{{ glider.pk }}"/>
                                         <input type="hidden" name="gliderId" value="{{ glider.id }}"/>
                                         <input type="hidden" name="sizeId" value="{{ size.id }}"/>
-                                        <input class="btn btn-dangercustom" type="submit" value="Remove">
+
+                                        <input class="btn btn-danger" type="submit" style="width:100%" value="Remove">
+
                                     </form>
+
                                 </th>
 
 

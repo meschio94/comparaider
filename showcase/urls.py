@@ -18,6 +18,7 @@ urlpatterns = [
     path('add_size/<int:pk>/', views.add_size, name='add_size'),
     path('edit_glider/<int:pk>/', views.edit_glider, name='edit_glider'),
     path('edit_size/<int:pkg>/<int:pks>/', views.edit_size, name='edit_size'),
+    path('remove_glider/', views.remove_glider, name='remove_glider'),
     path('remove_size/', views.remove_size, name='remove_size'),
     path('edit_info/', views.edit_info, name='edit_info')
 ]

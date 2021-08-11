@@ -7,7 +7,9 @@ from comparetool.models import CompareItems
 from .filters import GliderFilter
 from .models import Maker, Glider, Size
 from members.decorators import manufacturer_required, person_required
-from .forms import MakerEditForm,GliderForm,SizeForm
+from .forms import MakerEditForm, GliderForm, SizeForm
+
+
 # Create your views here.
 
 
@@ -19,8 +21,10 @@ class IndexView(ListView):
         context['compareItems'] = CompareItems.objects.all()
         return context
 
+
 class Prova(TemplateView):
     template_name = 'showcase/prova.html'
+
     def get_context_data(self, **kwargs):
         context = super(Prova, self).get_context_data(**kwargs)
         context['gliders'] = Glider.objects.all()
@@ -97,19 +101,20 @@ class GlidersView(ListView):
         context['glidersprova'] = "prova"
         return context
 
+
 @manufacturer_required
 def manufacturer_admin(request):
     user = request.user
     manufacturer = user.manufacturer_user
     gliders = manufacturer.manufacturer_glider.all()
 
-    return render(request, 'showcase/control_panel_manufacture.html', {'manufacturer':manufacturer, 'gliders':gliders})
+    return render(request, 'showcase/control_panel_manufacture.html',
+                  {'manufacturer': manufacturer, 'gliders': gliders})
 
 
 @manufacturer_required
 def add_glider(request):
-
-    form = GliderForm(request.POST or None) #add
+    form = GliderForm(request.POST or None)  # add
     if request.method == 'POST':
         form = GliderForm(request.POST, request.FILES)
 
@@ -123,12 +128,12 @@ def add_glider(request):
             return redirect('showcase:manufacture_panel')
         else:
             form = GliderForm()
-    return render(request, 'showcase/control_panel_add_glider.html', {'add_glider_form':form})
+    return render(request, 'showcase/control_panel_add_glider.html', {'add_glider_form': form})
+
 
 @manufacturer_required
-def add_size(request,pk):
-
-    form = SizeForm(request.POST or None) #add
+def add_size(request, pk):
+    form = SizeForm(request.POST or None)  # add
     if request.method == 'POST':
         form = SizeForm(request.POST, request.FILES)
 
@@ -144,23 +149,20 @@ def add_size(request,pk):
             return redirect('showcase:edit_glider', pk=pk)
         else:
             form = SizeForm()
-    return render(request, 'showcase/control_panel_add_size.html', {'add_size_form':form})
+    return render(request, 'showcase/control_panel_add_size.html', {'add_size_form': form})
 
 
 @manufacturer_required
 def edit_glider(request, pk):
-
     user = request.user
     manufacturer = user.manufacturer_user
     glider = get_object_or_404(manufacturer.manufacturer_glider, pk=pk)
     glider = manufacturer.manufacturer_glider.get(pk=pk)
 
-    form = GliderForm(request.POST or None) #add
+    form = GliderForm(request.POST or None)  # add
 
     if request.method == 'POST':
         form = GliderForm(request.POST, request.FILES, instance=glider)
-
-
 
         if form.is_valid():
             form.save()
@@ -168,17 +170,17 @@ def edit_glider(request, pk):
             return redirect('showcase:manufacture_panel')
         else:
             form = GliderForm(instance=glider)
-    return render(request, 'showcase/control_panel_edit_glider.html', {'edit_glider_form':form, 'glider':glider})
+    return render(request, 'showcase/control_panel_edit_glider.html', {'edit_glider_form': form, 'glider': glider})
+
 
 @manufacturer_required
 def edit_size(request, pkg, pks):
-
     user = request.user
     manufacturer = user.manufacturer_user
     glider = get_object_or_404(manufacturer.manufacturer_glider, pk=pkg)
     glider = manufacturer.manufacturer_glider.get(pk=pkg)
     size = glider.glider_size.get(pk=pks)
-    form = SizeForm(request.POST or None) #add
+    form = SizeForm(request.POST or None)  # add
 
     if request.method == 'POST':
         form = SizeForm(request.POST, request.FILES, instance=size)
@@ -189,12 +191,28 @@ def edit_size(request, pkg, pks):
             return redirect('showcase:edit_glider', pk=pkg)
         else:
             form = SizeForm(instance=size)
-    return render(request, 'showcase/control_panel_edit_size.html', {'edit_size_form':form, 'glider':glider, 'size':size})
+    return render(request, 'showcase/control_panel_edit_size.html',
+                  {'edit_size_form': form, 'glider': glider, 'size': size})
+
+
+@manufacturer_required
+def remove_glider(request):
+    if request.method == 'POST':
+        gliderPk = request.POST['gliderPk']
+
+        user = request.user
+        manufacturer = user.manufacturer_user
+        glider = get_object_or_404(manufacturer.manufacturer_glider, pk=gliderPk)
+
+        glider = Glider.objects.filter(pk=gliderPk).delete()
+
+        return redirect('showcase:manufacture_panel')
+
+    return render(request, 'showcase/control_panel_manufacture.html')
+
 
 @manufacturer_required
 def remove_size(request):
-
-
     if request.method == 'POST':
         gliderPk = request.POST['gliderPk']
         gliderId = request.POST['gliderId']
@@ -204,53 +222,41 @@ def remove_size(request):
         manufacturer = user.manufacturer_user
         glider = get_object_or_404(manufacturer.manufacturer_glider, pk=gliderPk)
 
-
-
         size = Size.objects.filter(id=sizeId).delete()
-
-
 
         return redirect('showcase:edit_glider', pk=gliderPk)
 
-
     return render(request, 'showcase/control_panel_edit_glider.html')
+
 
 @manufacturer_required
 def edit_info(request):
-    manufacturer = request.user
-    #manufacturer = user.manufacturer_user
+    user = request.user
+    manufacturer = user.manufacturer_user
 
+    form = MakerEditForm(request.POST or None)
     if request.method == 'POST':
-        name = request.POST.get('name','')
-        logoImage = request.POST.get('logoImage','')
-        textIntro = request.POST.get('textIntro','')
+        form = MakerEditForm(request.POST, request.FILES, instance=manufacturer)
 
-        if name:
-
-            manufacturer.logoImage = logoImage
-            manufacturer.logoImage.save()
-
-            manufacturer.textIntro = textIntro
-            manufacturer.textIntro.save()
-
-            manufacturer.name = name
-            manufacturer.save()
+        if form.is_valid():
+            form.save()
             return redirect('showcase:manufacture_panel')
-
-    return render(request, 'showcase/control_panel_add_glider.html', {'edit_info':manufacturer})
-
-
+        else:
+            form = MakerEditForm(instance=manufacturer)
 
 
-#pronti per il macero
+    return render(request, 'showcase/control_panel_edit_info.html', {'edit_info_form': form, 'manufacturer': manufacturer})
+
+
+# pronti per il macero
 
 class User(TemplateView):
     template_name = 'user.html'
 
 
 def gliders():
-
     return "prova"
+
 
 def glider_list(request):
     model = Glider.objects.all()
@@ -258,14 +264,14 @@ def glider_list(request):
     model = myFilter.qs
     context = {
         'myFilter': myFilter,
-        'gliderlist':model,
+        'gliderlist': model,
     }
-    return render(request,'index.html', context)
+    return render(request, 'index.html', context)
+
 
 def view_glider_table(request, id=None):
     instance = get_object_or_404(Glider, id=id)
-    context={
-        'instance':instance
+    context = {
+        'instance': instance
     }
     return render(request, 'showcase/modal_glider.html')
-

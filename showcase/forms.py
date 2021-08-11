@@ -5,7 +5,7 @@ from .models import Maker, Glider, Size
 class MakerEditForm(ModelForm):
     class Meta:
         model = Maker
-        fields = ['logoImage','textIntro']
+        exclude = ['name','account']
 
 class GliderForm(ModelForm):
     class Meta:
