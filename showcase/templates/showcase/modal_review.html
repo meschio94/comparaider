@@ -44,12 +44,12 @@
         </div>
 
 
-        <div class="row infinite-container">
+        <div class="row infinite-container" id="reviewGlider {{ glider.id }}">
             {% for review in glider.glider_review.all %}
 
                 <div class="col-auto col-sm col-4 mr-2 ml-2 mt-2 mb-2 infinite-item ">
 
-                    <div class="card">
+                    <div class="card" id="review {{ review.id }}">
                         <div class="card-header">
                             {{ review.user.get_username }}
                         </div>

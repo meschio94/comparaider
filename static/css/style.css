@@ -727,15 +727,6 @@ ul.top_icon li a {
      border-radius: 0;
 }
 
-#login-modal .modal-content .modal-body .form-group input {
-     background: #ffffff;
-     border: 1px solid #c8c8c8;
-     border-radius: 0px;
-}
-
-#login-modal .modal-content .modal-body .form-group input:focus {
-     border: 1px solid #c8c8c8 !important;
-}
 
 #login-modal .modal-content form {
      margin-bottom: 10px;
@@ -2357,9 +2348,6 @@ line-height: 30px;
     padding: 41px;
 }
 
-.form-group {
-    margin-bottom: 2rem;
-}
 
 .submit_btn{
      width: 100%;

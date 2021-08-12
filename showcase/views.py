@@ -248,6 +248,8 @@ def edit_info(request):
     return render(request, 'showcase/control_panel_edit_info.html', {'edit_info_form': form, 'manufacturer': manufacturer})
 
 
+
+
 # pronti per il macero
 
 class User(TemplateView):

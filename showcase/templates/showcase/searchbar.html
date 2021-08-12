@@ -16,38 +16,66 @@
         <form method="get">
             {% csrf_token %}
 
-            <div class="container" style="max-width: 970px;">
-                <div class="row">
-                    <div class="col-md-2" style="max-width: 150px;">
-                        {{ myFilter.form.year | as_crispy_field }}
-                    </div>
-                    <div class="col-md-4">
-                        {{ myFilter.form.name | as_crispy_field }}
-                    </div>
-                    <div class="col-md-4" style="max-width: 150px;">
-                        {{ myFilter.form.maker | as_crispy_field }}
-                    </div>
+            <div class="row align-items-end justify-content-center">
 
-                    <div class="col-md-4">
-                        <button type="submit" class="btn btn-base">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                 viewBox="0 0 24 24"
-                                 fill="none" stroke="currentColor" stroke-width="2"
-                                 stroke-linecap="round"
-                                 stroke-linejoin="round" class="feather feather-search">
-                                <circle cx="11" cy="11" r="8"></circle>
-                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                            </svg>
+                <div class="form-group col-2 ml-0 pr-0">
+                    {{ myFilter.form.maker | as_crispy_field }}
+                </div>
+
+                <div class="form-group col-6 ml-0">
+                    {{ myFilter.form.name | as_crispy_field }}
+                </div>
+
+
+                <div class="form-group col-3 mb-0">
+                    <button type="submit" class="btn btn-base">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                             viewBox="0 0 24 24"
+                             fill="none" stroke="currentColor" stroke-width="2"
+                             stroke-linecap="round"
+                             stroke-linejoin="round" class="feather feather-search">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="row mt-3 mb-5">
+                <div section>
+                    <div class="col text-center">
+                        <button type="button" class="btn btn-primary" data-toggle="collapse"
+                                href="#collapseFilter"
+                                aria-expanded="false" aria-controls="collapseFilter">
+                            Filters
                         </button>
                     </div>
                 </div>
-                 <div class="row">
-                {{ mySizeFilter.form.certification | as_crispy_field }}
-                 </div>
-                 </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="collapse" id="collapseFilter">
+
+
+                    <div class="container">
+
+                        <div class="row justify-content-center">
+                            <div class="row">
+                                {{ myFilter.form.year | as_crispy_field }}
+                                {{ mySizeFilter.form|crispy }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
         </form>
+    </div>
+
+
+
 
 
     </div>
