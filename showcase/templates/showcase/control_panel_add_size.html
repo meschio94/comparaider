@@ -7,21 +7,36 @@
 
     <div id="plant" class="section  product">
         <div class="container">
+            <div class="row">
+                <div class="col-md-12 ">
+                    <div class="titlepage">
+                        <div class="col text-center">
+                            <h2> <strong class="black"> {{ size.glider.name }} </strong> </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="plant" class="section  product">
+        <div class="container">
             <div class="row justify-content-center">
 
                 <div class="col-lg-6">
 
 
-                    <div class="col text-center">
+                    <div class="col text-center mb-5">
 
                         <form method="post" action="." >
                             {% csrf_token %}
 
                             {{ add_size_form|crispy }}
 
-                            <div class="field">
+                            <div class="field mt-3">
                                 <div class="control">
-                                    <button class="btn btn-primary" >
+                                    <button class="btn btn-success" >
                                         Submit
                                     </button>
                                 </div>

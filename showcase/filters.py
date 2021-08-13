@@ -10,6 +10,7 @@ from django import forms
 from .models import Glider, Maker, Size, CERTIFICATION_CHOICES
 from django_filters import CharFilter,  NumberFilter, NumericRangeFilter, ChoiceFilter, RangeFilter, MultipleChoiceFilter
 from django_filters.fields import RangeField
+from django_range_slider.fields import RangeSliderField
 
 from .widgets import CustomRangeWidget
 
@@ -79,7 +80,9 @@ class GliderFilter(django_filters.FilterSet):
 
         label_suffix="",
     )
-    year = YearRangeFilter()
+
+
+    year = RangeFilter(field_name="year", lookup_expr='icontains', widget=CustomRangeWidget(attrs={'data-range_min':1980,'data-range_max':2021}))
 
     class Meta:
         form = GliderFilterForm

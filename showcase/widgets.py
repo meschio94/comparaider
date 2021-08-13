@@ -1,6 +1,8 @@
 from django.forms.widgets import HiddenInput
 from django_filters.widgets import RangeWidget
 
+
+
 class CustomRangeWidget(RangeWidget):
     template_name = 'showcase/widgets/range-slider.html'
 

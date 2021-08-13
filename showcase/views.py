@@ -4,11 +4,12 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, DetailView, View, TemplateView
 
 from comparetool.models import CompareItems
-from .filters import GliderFilter
+from reviews.models import GliderReview
+from .filters import GliderFilter, SizeFilter
 from .models import Maker, Glider, Size
 from members.decorators import manufacturer_required, person_required
 from .forms import MakerEditForm, GliderForm, SizeForm
-
+from django.db.models import Q
 
 # Create your views here.
 
@@ -60,19 +61,27 @@ class ShowManufacturesProfileView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(ShowManufacturesProfileView, self).get_context_data(**kwargs)
 
-        model = Glider.objects.all()
-        myFilter = GliderFilter(self.request.GET, queryset=model)
-        model = myFilter.qs
+        manufacturerId = self.kwargs['pk']
 
-        page_manufacture = get_object_or_404(Maker, id=self.kwargs['pk'])
+        mySizeFilter = SizeFilter(self.request.GET, queryset=Size.objects.filter())
+        model = Glider.objects.filter(Q(glider_size__in=mySizeFilter.qs) & Q(maker_id=manufacturerId)).distinct()
+
+        myFilter = GliderFilter(self.request.GET, queryset=model)
+
+        model = myFilter
+
+        page_manufacture = get_object_or_404(Maker, id=manufacturerId)
 
         # context['gliders'] = model
         context['myFilter'] = myFilter
+        context['mySizeFilter'] = mySizeFilter
         context['manufactures'] = Maker.objects.all()
         context['sizes'] = Size.objects.all()
+        context['reviews'] = GliderReview.objects.all()
         context['page_manufacture'] = page_manufacture
+
         page = self.request.GET.get('page', 1)
-        paginator = Paginator(model, 2)
+        paginator = Paginator(model.qs, 2)
 
         # parte paginatore con numeri manuale
         # page_number = self.request.GET.get('page')

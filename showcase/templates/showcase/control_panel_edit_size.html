@@ -11,7 +11,7 @@
                 <div class="col-md-12 ">
                     <div class="titlepage">
                         <div class="col text-center">
-                            <h2> Edit size <strong class="black"> to: </strong></h2>
+                            <h2> Edit <strong class="black"> {{ size.glider.name }} </strong> size :<strong class="black"> {{ size.size }} </strong></h2>
                         </div>
                     </div>
                 </div>
@@ -26,14 +26,14 @@
                 <div class="col-lg-6">
 
 
-                    <div class="col text-center">
+                    <div class="col text-center mb-5">
 
                         <form method="post" action="." enctype="multipart/form-data">
                             {% csrf_token %}
 
                             {{ edit_size_form|crispy }}
 
-                            <div class="field">
+                            <div class="field mt-3">
                                 <div class="control">
                                     <button class="btn btn-success">Submit</button>
                                 </div>

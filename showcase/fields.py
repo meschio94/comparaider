@@ -1,5 +1,6 @@
 from django.db import models
 
+
 #field for custom year input
 class Year(models.IntegerField):
 
