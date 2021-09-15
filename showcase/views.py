@@ -224,7 +224,6 @@ def remove_glider(request):
 def remove_size(request):
     if request.method == 'POST':
         gliderPk = request.POST['gliderPk']
-        gliderId = request.POST['gliderId']
         sizeId = request.POST['sizeId']
 
         user = request.user

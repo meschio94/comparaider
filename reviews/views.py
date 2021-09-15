@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 
 # Create your views here.
@@ -10,8 +11,15 @@ from .models import GliderReview
 @person_required
 def add_review(request, pk):
 
+
+
     form = ReviewCreation(request.POST or None) #add
     glider = Glider.objects.get(pk=pk)
+
+    userCheck = request.user
+    if GliderReview.objects.filter(glider=pk,user=userCheck).count() == 1:
+        return HttpResponse(status=403)
+
     if request.method == 'POST':
         form = ReviewCreation(request.POST, request.FILES)
 

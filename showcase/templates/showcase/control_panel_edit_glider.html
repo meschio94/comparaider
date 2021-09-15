@@ -104,7 +104,6 @@
                                     <form method="POST" action="{% url "showcase:remove_size" %}">
                                         {% csrf_token %}
                                         <input type="hidden" name="gliderPk" value="{{ glider.pk }}"/>
-                                        <input type="hidden" name="gliderId" value="{{ glider.id }}"/>
                                         <input type="hidden" name="sizeId" value="{{ size.id }}"/>
 
                                         <input class="btn btn-danger" type="submit" style="width:100%" value="Remove">
