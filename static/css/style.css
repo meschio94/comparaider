@@ -282,7 +282,6 @@ button {
      color: #114c7d;
      font-weight: 400;
      font-size: 28px;
-     background-image: url('../images/fevicon.png');
      background-repeat: no-repeat;
      padding-left: 55px;
      letter-spacing: -0.5px;
@@ -1856,7 +1855,7 @@ img.zoom {
      margin: 0px;
 }
 form {
-     background: #081b30
+     
      padding: 35px 30px;
 }
 .map_section figure img {
@@ -2323,7 +2322,6 @@ line-height: 30px;
     width: 100%;
     float: left;
     padding-bottom: 55px;
-    background-image: url(../images/boll_bg.png);
     height: auto;
     padding: 41px;
 }
