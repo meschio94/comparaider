@@ -1,11 +1,6 @@
 from django.db import models
-
 from showcase.models import Glider
 from members.models import User
-
-
-# Create your models here.
-
 
 class GliderReview(models.Model):
     glider = models.ForeignKey(Glider, on_delete=models.CASCADE, related_name='glider_review')

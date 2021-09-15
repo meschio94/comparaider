@@ -1,6 +1,4 @@
 from django.test import TestCase
-from django.test import TestCase
-from django.db import IntegrityError
 from django.urls import reverse, reverse_lazy
 from members.models import User
 from .models import GliderReview

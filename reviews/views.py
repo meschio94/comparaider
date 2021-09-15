@@ -1,7 +1,5 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
-
-# Create your views here.
 from members.decorators import person_required
 from reviews.forms import ReviewCreation
 from showcase.models import Glider

@@ -32,11 +32,8 @@ class Homepage(TemplateView):
         myFilter = GliderFilter(self.request.GET, queryset=model)
 
 
-        #query = QuerySetSequence(myFilter.qs,mySizeFilter.qs)
-
         model = myFilter
 
-        #context['gliders'] = model
         context['myFilter'] = myFilter
         context['mySizeFilter'] = mySizeFilter
         context['manufactures'] = get_manufactures()
@@ -45,12 +42,6 @@ class Homepage(TemplateView):
 
         page = self.request.GET.get('page', 1)
         paginator = Paginator(model.qs, 2)
-
-        #parte paginatore con numeri manuale
-        #page_number = self.request.GET.get('page')
-        #page_obj = paginator.get_page(page_number)
-        #context['gliders'] = page_obj
-        #fine parte paginatore manuale
 
         try:
             gliders = paginator.page(page)
