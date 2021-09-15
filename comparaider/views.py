@@ -12,7 +12,6 @@ from showcase.filters import GliderFilter, SizeFilter
 from showcase.models import Maker,Glider,Size
 from reviews.models import GliderReview
 from members.models import User
-from showcase.views import gliders
 from queryset_sequence import QuerySetSequence
 from itertools import chain
 from django.db.models import Q

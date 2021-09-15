@@ -1,9 +1,6 @@
 from django.db import models
-
 from showcase.models import Size
-
 from members.models import User
-# Create your models here.
 
 class CompareItems(models.Model):
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)

@@ -1,11 +1,7 @@
-from django.contrib.auth import login
-from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, TemplateView
 from .forms import UserCreationForm, PersonSignUpForm
-from members.models import User
 
-# Create your views here.
 
 class PersonCreationView(CreateView):
     form_class = PersonSignUpForm

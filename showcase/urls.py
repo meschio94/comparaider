@@ -8,10 +8,8 @@ app_name = 'showcase'  # evita i confilitti con nomi simili in altre app
 
 urlpatterns = [
     path('home/', Homepage.as_view(), name='home'),
-    path('prova/', Prova.as_view(), name='prova'),
     path('manufactures/', Manufactures.as_view(), name='manufactures'),
     path('gliders/', GlidersView.as_view(), name='gliders'),
-    path('user/', User.as_view(), name='user'),
     path('<int:pk>/manufacture_profile/', ShowManufacturesProfileView.as_view(), name='manufacture_profile'),
     path('manufacturer_panel/', views.manufacturer_admin ,name='manufacture_panel'),
     path('add_glider/', views.add_glider, name='add_glider'),

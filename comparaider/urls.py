@@ -19,7 +19,6 @@ from .settings import MEDIA_URL, MEDIA_ROOT
 from django.urls import include, path
 from showcase import urls
 from comparaider.views import Homepage
-from showcase.views import gliders
 import showcase.views
 from showcase import urls
 
@@ -34,6 +33,5 @@ urlpatterns = [
     path('members/', include('members.urls')),
     path('reviews/',include('reviews.urls')),
     path('compare/',include('comparetool.urls'))
-    #path('glider/', GliderListView.as_view(), name='gliderlist'),
 
 ] + static(MEDIA_URL, document_root=MEDIA_ROOT)

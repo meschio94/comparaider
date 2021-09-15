@@ -63,6 +63,12 @@
                                 {% endfor %}
                             </tr>
                             <tr>
+                                <th scope="col">Year</th>
+                                {% for size in compareItems.size_item.all %}
+                                    <th scope="col">{{ size.size.glider.year }}</th>
+                                {% endfor %}
+                            </tr>
+                            <tr>
                                 <th scope="col">Size</th>
                                 {% for size in compareItems.size_item.all %}
                                     <th scope="col">{{ size.size.size }}</th>
@@ -92,6 +98,24 @@
                                 <th scope="row">Glider Weight</th>
                                 {% for size in compareItems.size_item.all %}
                                     <th scope="col">{{ size.size.gliderWeight }}</th>
+                                {% endfor %}
+                            </tr>
+                            <tr>
+                                <th scope="row">Flat Area</th>
+                                {% for size in compareItems.size_item.all %}
+                                    <th scope="col">{{ size.size.flatArea }}</th>
+                                {% endfor %}
+                            </tr>
+                            <tr>
+                                <th scope="row">Project Area</th>
+                                {% for size in compareItems.size_item.all %}
+                                    <th scope="col">{{ size.size.projectArea }}</th>
+                                {% endfor %}
+                            </tr>
+                            <tr>
+                                <th scope="row">Cells</th>
+                                {% for size in compareItems.size_item.all %}
+                                    <th scope="col">{{ size.size.cells }}</th>
                                 {% endfor %}
                             </tr>
                             </tbody>

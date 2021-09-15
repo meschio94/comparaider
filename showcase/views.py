@@ -2,19 +2,20 @@ from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, DetailView, View, TemplateView
-
-from comparetool.models import CompareItems
+from members.models import User
+from comparetool.models import CompareItems, SizeItem
 from reviews.models import GliderReview
 from .filters import GliderFilter, SizeFilter
 from .models import Maker, Glider, Size
 from members.decorators import manufacturer_required, person_required
 from .forms import MakerEditForm, GliderForm, SizeForm
+
 from django.db.models import Q
 
 # Create your views here.
 
 
-class IndexView(ListView):
+class IndexView(TemplateView):
     template_name = 'showcase/index.html'
 
     def get_context_data(self, **kwargs):
@@ -22,14 +23,6 @@ class IndexView(ListView):
         context['compareItems'] = CompareItems.objects.all()
         return context
 
-
-class Prova(TemplateView):
-    template_name = 'showcase/prova.html'
-
-    def get_context_data(self, **kwargs):
-        context = super(Prova, self).get_context_data(**kwargs)
-        context['gliders'] = Glider.objects.all()
-        return context
 
 
 class Manufactures(TemplateView):
@@ -54,8 +47,7 @@ class Manufactures(TemplateView):
         return context
 
 
-class ShowManufacturesProfileView(DetailView):
-    model = Maker
+class ShowManufacturesProfileView(TemplateView):
     template_name = 'showcase/manufacture_profile.html'
 
     def get_context_data(self, **kwargs):
@@ -99,6 +91,26 @@ class ShowManufacturesProfileView(DetailView):
         context['gliders'] = gliders
         return context
 
+    def post(self, request, *args, **kwargs):
+
+        if request.method == 'POST':
+            sizeId = request.POST['sizeId']
+            size = Size.objects.get(id=sizeId)
+            # Get user account information
+            try:
+                user = request.user.user
+            except:
+                device = request.COOKIES['device']
+                user, created = User.objects.get_or_create(device=device)
+
+            compareItems, created = CompareItems.objects.get_or_create(user=user, complete=False)
+            sizeItem, created = SizeItem.objects.get_or_create(compareItems=compareItems, size=size)
+
+            sizeItem.save()
+
+            return redirect('comparetool:compare')
+
+        return render(request, 'showcase/manufacture_profile.html')
 
 class GlidersView(ListView):
     model = Glider
@@ -257,31 +269,3 @@ def edit_info(request):
 
 
 
-
-# pronti per il macero
-
-class User(TemplateView):
-    template_name = 'user.html'
-
-
-def gliders():
-    return "prova"
-
-
-def glider_list(request):
-    model = Glider.objects.all()
-    myFilter = GliderFilter(request.GET, queryset=model)
-    model = myFilter.qs
-    context = {
-        'myFilter': myFilter,
-        'gliderlist': model,
-    }
-    return render(request, 'index.html', context)
-
-
-def view_glider_table(request, id=None):
-    instance = get_object_or_404(Glider, id=id)
-    context = {
-        'instance': instance
-    }
-    return render(request, 'showcase/modal_glider.html')
