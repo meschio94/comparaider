@@ -2,26 +2,29 @@
 {% load my_tags %}
 {% block cards_manufactures %}
 
-    <div class="row infinite-container">
+    <div class="row infinite-container" id="manufacturerCards">
 
         {% for manufacture in manufactures %}
 
 
-            <div class="col-auto col-sm col-4 mr-2 ml-2 mt-2 mb-2 infinite-item ">
+            <div class="col-auto col-sm col-4 mr-2 ml-2 mt-2 mb-2  infinite-item ">
 
-                <div class="card ">
-                    <img class="card-img-top" src="{{ manufacture.logoImage.url }}" alt="Card image cap">
+
+                <div class="card h-100" >
+                    <img class="card-img-center" src="{{ manufacture.logoImage.url }}" >
                     <div class="card-body">
-                        <div class="row ml-1 text-center">
+                        <div class="row ml-1">
+                            <div class="col text-center">
                             <h3 href="#" class="card-title">{{ manufacture.name }} </h3>
-
+                            </div>
                         </div>
 
-                        <p class="card-text">{{ glider.year }}</p>
+
                         <div class="card-body">
                             <div class="row ml-1">
                                 <div class="col text-center">
-                                    <a href="{% url 'showcase:manufacture_profile' manufacture.id %}" class="btn btn-primary" >Page</a>
+                                    <a href="{% url 'showcase:manufacture_profile' manufacture.id %}"
+                                       class="btn btn-primary">Page</a>
 
                                 </div>
 
@@ -36,6 +39,39 @@
         {% endfor %}
     </div>
 
+
+    <!--Pagination-->
+    {% if manufactures.has_next %}
+        <a class="infinite-more-link" href="?{% relative_url page=manufactures.next_page_number %}">More</a>
+    {% endif %}
+
+    <!--end of Pagination-->
+
+    <!--Loading NON FUNZIONA-->
+    <div class="loading" style="display: none;">
+        {% include 'showcase/loader.html' %}
+    </div>
+    <!-- end of Loading -->
+
+
+
+    <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'js/infinite.min.js' %}"></script>
+
+    <script>
+        var infinite = new Waypoint.Infinite({
+            element: $('.infinite-container')[0],
+
+            onBeforePageLoad: function () {
+                $('.loading').show();
+            },
+
+            onAfterPageLoad: function () {
+                $('.loading').hide();
+            },
+        });
+    </script>
 
 {% endblock %}
 {% load static %}

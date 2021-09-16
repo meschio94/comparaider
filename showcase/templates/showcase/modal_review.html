@@ -6,48 +6,46 @@
 
         <div class="row justify-content-center">
 
-            <div class="col-lg-.">
 
-                <div class="notification space-below">
-
-                        {% if user.is_authenticated and user.is_person %}
+            {% if user.is_authenticated and user.is_person %}
 
 
+                {% for x in user.user_review.all %}
 
+                    {% if x.glider.id == glider.id %}
 
-                            {% for x in user.user_review.all%}
-
-                                {% if x.glider.id == glider.id  %}
-
-                                <a href="{% url 'reviews:edit_review' glider.id x.id %}" class="btn btn-primary" >Edit Review</a>
-
-                                {% else %}
-
-                                <a href="{% url 'reviews:add_review' glider.id %}" class="btn btn-primary" >Add Review</a>
-
-                                {% endif %}
-
-                                {% endfor %}
-
-
-
+                        <a href="{% url 'reviews:edit_review' glider.id x.id %}" class="btn btn-primary">Edit
+                            Review</a>
 
                     {% else %}
-                        <div class="text-center">
-                            <p>Please sign in to add review!</p>
-                        </div>
+
+                        <a href="{% url 'reviews:add_review' glider.id %}" class="btn btn-primary">Add
+                            Review</a>
+
                     {% endif %}
 
+                 {% empty %}
+                        <a href="{% url 'reviews:add_review' glider.id %}" class="btn btn-primary">Add
+                            Review</a>
+                {% endfor %}
 
+
+
+
+            {% else %}
+                <div class="text-center">
+                    <p>Please sign in to add review!</p>
                 </div>
-            </div>
+            {% endif %}
+
+
         </div>
 
 
-        <div class="row infinite-container" id="reviewGlider {{ glider.id }}">
+        <div class="row infinite-container mr-2 ml-2 mt-2 mb-2" id="reviewGlider {{ glider.id }}">
             {% for review in glider.glider_review.all %}
 
-                <div class="col-auto col-sm col-4 mr-2 ml-2 mt-2 mb-2 infinite-item ">
+                <div class="row  mr-2 ml-2 mt-2 mb-2 infinite-item ">
 
                     <div class="card" id="review {{ review.id }}">
                         <div class="card-header">
@@ -64,7 +62,7 @@
 
             {% empty %}
 
-                <div class="notification space-below">
+                <div class="notification space-below text-center">
                     No reviews yet...
                 </div>
 

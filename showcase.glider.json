@@ -1,0 +1,62 @@
+[
+{
+    "model": "showcase.glider",
+    "pk": 1,
+    "fields": {
+        "name": "Enzo 3",
+        "maker": 1,
+        "year": 2020,
+        "gliderImage": "products/Ozone/2020/Enzo 3/Enzo_3"
+    }
+},
+{
+    "model": "showcase.glider",
+    "pk": 2,
+    "fields": {
+        "name": "Buzz Z6",
+        "maker": 1,
+        "year": 2020,
+        "gliderImage": "products/Ozone/2020/Buzz Z6/Buzz_Z6"
+    }
+},
+{
+    "model": "showcase.glider",
+    "pk": 3,
+    "fields": {
+        "name": "Geo 6",
+        "maker": 1,
+        "year": 2019,
+        "gliderImage": "products/Ozone/2019/Geo 6/Geo_6"
+    }
+},
+{
+    "model": "showcase.glider",
+    "pk": 4,
+    "fields": {
+        "name": "Hook 5",
+        "maker": 2,
+        "year": 2021,
+        "gliderImage": "products/Niviuk/2021/Hook 5/Hook_5"
+    }
+},
+{
+    "model": "showcase.glider",
+    "pk": 5,
+    "fields": {
+        "name": "Ikuma 2",
+        "maker": 2,
+        "year": 2020,
+        "gliderImage": "products/Niviuk/2020/Ikuma 2/Ikuma_2"
+    }
+},
+{
+    "model": "showcase.glider",
+    "pk": 6,
+    "fields": {
+        "name": "Artik 6",
+        "maker": 2,
+        "year": 2021,
+        "gliderImage": "products/Niviuk/2021/Artik 6/Artik_6"
+    }
+}
+]
