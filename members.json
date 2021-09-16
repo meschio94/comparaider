@@ -1,0 +1,107 @@
+[
+{
+    "model": "members.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$260000$N7ZLZLOkkVdcz7HDswYV5l$p1VjmPw5beorJKXhWFY+FRHmP+tRzpAyza1nixFMYzk=",
+        "last_login": "2021-09-16T21:27:06.672Z",
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2021-09-16T07:29:44.591Z",
+        "email": "admin@email.com",
+        "device": null,
+        "is_person": true,
+        "is_manufacturer": false,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "members.user",
+    "pk": 5,
+    "fields": {
+        "password": "pbkdf2_sha256$260000$n9Oc2Q4Xb9Kx5Rl2MQt8SH$vg0r/F7OlK4RZwV1sJinYn/BzHWe0AkCqgQT3EHbtOU=",
+        "last_login": "2021-09-16T16:47:13.901Z",
+        "is_superuser": false,
+        "username": "mario",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2021-09-16T16:38:52.157Z",
+        "email": "mario@email.com",
+        "device": null,
+        "is_person": true,
+        "is_manufacturer": false,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "members.user",
+    "pk": 7,
+    "fields": {
+        "password": "pbkdf2_sha256$260000$FSSahYbUWxQMQdqjX92OFa$FXQ14vw2R55155ZotpQ9BXiyv8LzEo6gPsuu5shrY7E=",
+        "last_login": "2021-09-16T17:01:47.005Z",
+        "is_superuser": false,
+        "username": "alberto",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2021-09-16T17:01:31.938Z",
+        "email": "alberto@email.com",
+        "device": null,
+        "is_person": true,
+        "is_manufacturer": false,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "members.user",
+    "pk": 8,
+    "fields": {
+        "password": "pbkdf2_sha256$260000$qelH2pbwwvYTuf0vua12MA$ovNlLgWtHgsh+kYW2z85Jtu6/8NZgNj/CTELnjkfpfI=",
+        "last_login": "2021-09-16T17:13:20.477Z",
+        "is_superuser": false,
+        "username": "alessia",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2021-09-16T17:09:18.110Z",
+        "email": "alessia@email.com",
+        "device": null,
+        "is_person": true,
+        "is_manufacturer": false,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "members.user",
+    "pk": 10,
+    "fields": {
+        "password": "pbkdf2_sha256$260000$BcFqmz7X7Gh3l0O6Exrweb$Np4PLOEcCIpNJPLJrpWrImJmfhgFMmQkwrVgwAbDOmg=",
+        "last_login": "2021-09-16T21:27:48.958Z",
+        "is_superuser": false,
+        "username": "ozone",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2021-09-16T21:26:51Z",
+        "email": "ozone@email.com",
+        "device": null,
+        "is_person": false,
+        "is_manufacturer": true,
+        "groups": [],
+        "user_permissions": []
+    }
+}
+]

@@ -1,0 +1,46 @@
+[
+{
+    "model": "reviews.gliderreview",
+    "pk": 1,
+    "fields": {
+        "glider": 2,
+        "user": 5,
+        "content": "molto bella, vela facile, esperienza positiva, classe adeguata al suo utilizzo e adatta da ch iarriva da una A, ozone non tradisce mai le aspettative",
+        "stars": 5,
+        "date_added": "2021-09-16T16:51:38.277Z"
+    }
+},
+{
+    "model": "reviews.gliderreview",
+    "pk": 2,
+    "fields": {
+        "glider": 2,
+        "user": 6,
+        "content": "Pessima, cabra troppo e le termiche le prende con poca decisione, chiusure frequenti e troppo intense, una B che tende al C, no nadatta per chi sta ancora imparando, nulla da dire sull'efficenza che invece la rende performante per la sua classa, confermando appunto che la classe in cui si trova sia sbagliata",
+        "stars": 2,
+        "date_added": "2021-09-16T17:00:29.747Z"
+    }
+},
+{
+    "model": "reviews.gliderreview",
+    "pk": 3,
+    "fields": {
+        "glider": 2,
+        "user": 7,
+        "content": "Vengo dal modello precedente, vela che mi ha accompagnato nella mia esperienza di pilota, una vela robusta che aiuta a correggere gli errori, può sembrare difficile se non si è abituati ad una Ozone, ma se si fa pratica verso il decimo volo non tornerete più indietro",
+        "stars": 5,
+        "date_added": "2021-09-16T17:03:23.800Z"
+    }
+},
+{
+    "model": "reviews.gliderreview",
+    "pk": 4,
+    "fields": {
+        "glider": 2,
+        "user": 8,
+        "content": "gran vela",
+        "stars": 3,
+        "date_added": "2021-09-16T17:30:58.089Z"
+    }
+}
+]

@@ -22,3 +22,6 @@ class GliderReview(models.Model):
                 fields=['user', 'glider'],
                 name="a user can have only one review per glider", )
         ]
+
+    def __str__(self):
+        return f"{self.glider} - {self.user}"

@@ -1,27 +1,18 @@
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
-from django.views.generic import ListView, DetailView, View, TemplateView
+from django.views.generic import ListView, TemplateView
 from members.models import User
 from comparetool.models import CompareItems, SizeItem
 from reviews.models import GliderReview
 from .filters import GliderFilter, SizeFilter
 from .models import Maker, Glider, Size
-from members.decorators import manufacturer_required, person_required
+from members.decorators import manufacturer_required
 from .forms import MakerEditForm, GliderForm, SizeForm
 
 from django.db.models import Q
 
-# Create your views here.
 
-
-class IndexView(TemplateView):
-    template_name = 'showcase/index.html'
-
-    def get_context_data(self, **kwargs):
-        context = super(Prova, self).get_context_data(**kwargs)
-        context['compareItems'] = CompareItems.objects.all()
-        return context
 
 
 
@@ -64,7 +55,7 @@ class ShowManufacturesProfileView(TemplateView):
 
         page_manufacture = get_object_or_404(Maker, id=manufacturerId)
 
-        # context['gliders'] = model
+
         context['myFilter'] = myFilter
         context['mySizeFilter'] = mySizeFilter
         context['manufactures'] = Maker.objects.all()
@@ -75,11 +66,6 @@ class ShowManufacturesProfileView(TemplateView):
         page = self.request.GET.get('page', 1)
         paginator = Paginator(model.qs, 2)
 
-        # parte paginatore con numeri manuale
-        # page_number = self.request.GET.get('page')
-        # page_obj = paginator.get_page(page_number)
-        # context['gliders'] = page_obj
-        # fine parte paginatore manuale
 
         try:
             gliders = paginator.page(page)

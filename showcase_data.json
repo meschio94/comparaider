@@ -1,0 +1,1207 @@
+[
+{
+    "model": "showcase.maker",
+    "pk": 1,
+    "fields": {
+        "name": "Ozone",
+        "logoImage": "products/Ozone/Ozone/logo",
+        "textIntro": "We are a French producer of paraglider",
+        "account": 10
+    }
+},
+{
+    "model": "showcase.maker",
+    "pk": 2,
+    "fields": {
+        "name": "Niviuk",
+        "logoImage": "products/Niviuk/Niviuk/logo",
+        "textIntro": "",
+        "account": null
+    }
+},
+{
+    "model": "showcase.maker",
+    "pk": 3,
+    "fields": {
+        "name": "Gin",
+        "logoImage": "products/Gin/Gin/logo",
+        "textIntro": "",
+        "account": null
+    }
+},
+{
+    "model": "showcase.maker",
+    "pk": 4,
+    "fields": {
+        "name": "Nova",
+        "logoImage": "products/Nova/Nova/logo",
+        "textIntro": "",
+        "account": null
+    }
+},
+{
+    "model": "showcase.maker",
+    "pk": 5,
+    "fields": {
+        "name": "Macpara",
+        "logoImage": "products/Macpara/Macpara/logo",
+        "textIntro": "",
+        "account": null
+    }
+},
+{
+    "model": "showcase.glider",
+    "pk": 1,
+    "fields": {
+        "name": "Enzo 3",
+        "maker": 1,
+        "year": 2020,
+        "gliderImage": "products/Ozone/2020/Enzo 3/Enzo_3"
+    }
+},
+{
+    "model": "showcase.glider",
+    "pk": 2,
+    "fields": {
+        "name": "Buzz Z6",
+        "maker": 1,
+        "year": 2020,
+        "gliderImage": "products/Ozone/2020/Buzz Z6/Buzz_Z6"
+    }
+},
+{
+    "model": "showcase.glider",
+    "pk": 3,
+    "fields": {
+        "name": "Geo 6",
+        "maker": 1,
+        "year": 2019,
+        "gliderImage": "products/Ozone/2019/Geo 6/Geo_6"
+    }
+},
+{
+    "model": "showcase.glider",
+    "pk": 4,
+    "fields": {
+        "name": "Hook 5",
+        "maker": 2,
+        "year": 2021,
+        "gliderImage": "products/Niviuk/2021/Hook 5/Hook_5"
+    }
+},
+{
+    "model": "showcase.glider",
+    "pk": 5,
+    "fields": {
+        "name": "Ikuma 2",
+        "maker": 2,
+        "year": 2020,
+        "gliderImage": "products/Niviuk/2020/Ikuma 2/Ikuma_2"
+    }
+},
+{
+    "model": "showcase.glider",
+    "pk": 6,
+    "fields": {
+        "name": "Artik 6",
+        "maker": 2,
+        "year": 2021,
+        "gliderImage": "products/Niviuk/2021/Artik 6/Artik_6"
+    }
+},
+{
+    "model": "showcase.glider",
+    "pk": 7,
+    "fields": {
+        "name": "Bolero 6",
+        "maker": 3,
+        "year": 2021,
+        "gliderImage": "products/Gin/2021/Bolero 6/Bolero_6"
+    }
+},
+{
+    "model": "showcase.glider",
+    "pk": 8,
+    "fields": {
+        "name": "Leopard",
+        "maker": 3,
+        "year": 2021,
+        "gliderImage": "products/Gin/2021/Leopard/Leopard"
+    }
+},
+{
+    "model": "showcase.glider",
+    "pk": 9,
+    "fields": {
+        "name": "Calypso",
+        "maker": 3,
+        "year": 2020,
+        "gliderImage": "products/Gin/2020/Calypso/Calypso"
+    }
+},
+{
+    "model": "showcase.glider",
+    "pk": 10,
+    "fields": {
+        "name": "Aionic",
+        "maker": 4,
+        "year": 2020,
+        "gliderImage": "products/Nova/2020/Aionic/Aionic"
+    }
+},
+{
+    "model": "showcase.glider",
+    "pk": 11,
+    "fields": {
+        "name": "Bantam",
+        "maker": 4,
+        "year": 2019,
+        "gliderImage": "products/Nova/2019/Bantam/Bantam"
+    }
+},
+{
+    "model": "showcase.glider",
+    "pk": 12,
+    "fields": {
+        "name": "Mentor",
+        "maker": 4,
+        "year": 2021,
+        "gliderImage": "products/Nova/2021/Mentor/Mentor"
+    }
+},
+{
+    "model": "showcase.glider",
+    "pk": 13,
+    "fields": {
+        "name": "Muse 5",
+        "maker": 5,
+        "year": 2021,
+        "gliderImage": "products/Macpara/2021/Muse 5/Muse_5"
+    }
+},
+{
+    "model": "showcase.glider",
+    "pk": 14,
+    "fields": {
+        "name": "Illusion",
+        "maker": 5,
+        "year": 2020,
+        "gliderImage": "products/Macpara/2020/Illusion/Illusion"
+    }
+},
+{
+    "model": "showcase.glider",
+    "pk": 15,
+    "fields": {
+        "name": "Magus",
+        "maker": 5,
+        "year": 2019,
+        "gliderImage": "products/Macpara/2019/Magus/Magus"
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 1,
+    "fields": {
+        "glider": 1,
+        "certification": "C",
+        "size": "XS",
+        "takeoffWeightMin": 85,
+        "takeoffWeightMax": 95,
+        "gliderWeight": "5.50",
+        "flatArea": 20,
+        "projectArea": "17.20",
+        "cells": 101
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 2,
+    "fields": {
+        "glider": 1,
+        "certification": "C",
+        "size": "S",
+        "takeoffWeightMin": 90,
+        "takeoffWeightMax": 105,
+        "gliderWeight": "5.60",
+        "flatArea": 22,
+        "projectArea": "18.60",
+        "cells": 101
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 3,
+    "fields": {
+        "glider": 1,
+        "certification": "C",
+        "size": "M",
+        "takeoffWeightMin": 95,
+        "takeoffWeightMax": 115,
+        "gliderWeight": "5.90",
+        "flatArea": 23,
+        "projectArea": "20.10",
+        "cells": 101
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 4,
+    "fields": {
+        "glider": 1,
+        "certification": "C",
+        "size": "L",
+        "takeoffWeightMin": 105,
+        "takeoffWeightMax": 125,
+        "gliderWeight": "6.20",
+        "flatArea": 25,
+        "projectArea": "25.70",
+        "cells": 101
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 5,
+    "fields": {
+        "glider": 2,
+        "certification": "B",
+        "size": "XS",
+        "takeoffWeightMin": 55,
+        "takeoffWeightMax": 70,
+        "gliderWeight": "4.30",
+        "flatArea": 22,
+        "projectArea": "18.70",
+        "cells": 48
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 6,
+    "fields": {
+        "glider": 2,
+        "certification": "B",
+        "size": "S",
+        "takeoffWeightMin": 65,
+        "takeoffWeightMax": 85,
+        "gliderWeight": "4.60",
+        "flatArea": 24,
+        "projectArea": "20.30",
+        "cells": 48
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 7,
+    "fields": {
+        "glider": 2,
+        "certification": "B",
+        "size": "MS",
+        "takeoffWeightMin": 75,
+        "takeoffWeightMax": 95,
+        "gliderWeight": "4.80",
+        "flatArea": 25,
+        "projectArea": "21.80",
+        "cells": 48
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 8,
+    "fields": {
+        "glider": 2,
+        "certification": "B",
+        "size": "ML",
+        "takeoffWeightMin": 85,
+        "takeoffWeightMax": 105,
+        "gliderWeight": "5.10",
+        "flatArea": 27,
+        "projectArea": "23.00",
+        "cells": 48
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 9,
+    "fields": {
+        "glider": 2,
+        "certification": "B",
+        "size": "L",
+        "takeoffWeightMin": 95,
+        "takeoffWeightMax": 115,
+        "gliderWeight": "5.40",
+        "flatArea": 29,
+        "projectArea": "24.50",
+        "cells": 48
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 10,
+    "fields": {
+        "glider": 3,
+        "certification": "B",
+        "size": "XS",
+        "takeoffWeightMin": 55,
+        "takeoffWeightMax": 70,
+        "gliderWeight": "3.30",
+        "flatArea": 22,
+        "projectArea": "18.70",
+        "cells": 48
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 11,
+    "fields": {
+        "glider": 3,
+        "certification": "B",
+        "size": "S",
+        "takeoffWeightMin": 65,
+        "takeoffWeightMax": 85,
+        "gliderWeight": "3.50",
+        "flatArea": 24,
+        "projectArea": "20.30",
+        "cells": 48
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 12,
+    "fields": {
+        "glider": 3,
+        "certification": "B",
+        "size": "MS",
+        "takeoffWeightMin": 75,
+        "takeoffWeightMax": 95,
+        "gliderWeight": "3.70",
+        "flatArea": 25,
+        "projectArea": "21.80",
+        "cells": 48
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 13,
+    "fields": {
+        "glider": 3,
+        "certification": "B",
+        "size": "ML",
+        "takeoffWeightMin": 85,
+        "takeoffWeightMax": 105,
+        "gliderWeight": "3.90",
+        "flatArea": 27,
+        "projectArea": "23.00",
+        "cells": 48
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 14,
+    "fields": {
+        "glider": 3,
+        "certification": "B",
+        "size": "L",
+        "takeoffWeightMin": 95,
+        "takeoffWeightMax": 115,
+        "gliderWeight": "3.90",
+        "flatArea": 29,
+        "projectArea": "24.50",
+        "cells": 48
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 15,
+    "fields": {
+        "glider": 4,
+        "certification": "B",
+        "size": "20",
+        "takeoffWeightMin": 55,
+        "takeoffWeightMax": 70,
+        "gliderWeight": "3.90",
+        "flatArea": 20,
+        "projectArea": "17.06",
+        "cells": 47
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 16,
+    "fields": {
+        "glider": 4,
+        "certification": "B",
+        "size": "22",
+        "takeoffWeightMin": 60,
+        "takeoffWeightMax": 80,
+        "gliderWeight": "4.30",
+        "flatArea": 22,
+        "projectArea": "18.76",
+        "cells": 47
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 17,
+    "fields": {
+        "glider": 4,
+        "certification": "B",
+        "size": "24",
+        "takeoffWeightMin": 70,
+        "takeoffWeightMax": 92,
+        "gliderWeight": "4.60",
+        "flatArea": 24,
+        "projectArea": "20.47",
+        "cells": 47
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 18,
+    "fields": {
+        "glider": 4,
+        "certification": "B",
+        "size": "26",
+        "takeoffWeightMin": 82,
+        "takeoffWeightMax": 105,
+        "gliderWeight": "4.90",
+        "flatArea": 26,
+        "projectArea": "22.17",
+        "cells": 47
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 19,
+    "fields": {
+        "glider": 4,
+        "certification": "B",
+        "size": "28",
+        "takeoffWeightMin": 95,
+        "takeoffWeightMax": 120,
+        "gliderWeight": "5.20",
+        "flatArea": 28,
+        "projectArea": "23.88",
+        "cells": 47
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 20,
+    "fields": {
+        "glider": 5,
+        "certification": "B",
+        "size": "22",
+        "takeoffWeightMin": 65,
+        "takeoffWeightMax": 85,
+        "gliderWeight": "4.10",
+        "flatArea": 22,
+        "projectArea": "18.84",
+        "cells": 61
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 21,
+    "fields": {
+        "glider": 5,
+        "certification": "B",
+        "size": "24",
+        "takeoffWeightMin": 75,
+        "takeoffWeightMax": 95,
+        "gliderWeight": "4.40",
+        "flatArea": 24,
+        "projectArea": "20.55",
+        "cells": 61
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 22,
+    "fields": {
+        "glider": 5,
+        "certification": "B",
+        "size": "26",
+        "takeoffWeightMin": 85,
+        "takeoffWeightMax": 105,
+        "gliderWeight": "4.60",
+        "flatArea": 26,
+        "projectArea": "22.27",
+        "cells": 61
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 23,
+    "fields": {
+        "glider": 5,
+        "certification": "B",
+        "size": "28",
+        "takeoffWeightMin": 95,
+        "takeoffWeightMax": 115,
+        "gliderWeight": "4.90",
+        "flatArea": 28,
+        "projectArea": "23.98",
+        "cells": 61
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 24,
+    "fields": {
+        "glider": 5,
+        "certification": "B",
+        "size": "30",
+        "takeoffWeightMin": 105,
+        "takeoffWeightMax": 130,
+        "gliderWeight": "5.20",
+        "flatArea": 30,
+        "projectArea": "25.69",
+        "cells": 61
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 25,
+    "fields": {
+        "glider": 6,
+        "certification": "C",
+        "size": "23",
+        "takeoffWeightMin": 70,
+        "takeoffWeightMax": 90,
+        "gliderWeight": "4.50",
+        "flatArea": 23,
+        "projectArea": "19.61",
+        "cells": 66
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 26,
+    "fields": {
+        "glider": 6,
+        "certification": "C",
+        "size": "25",
+        "takeoffWeightMin": 85,
+        "takeoffWeightMax": 105,
+        "gliderWeight": "4.70",
+        "flatArea": 25,
+        "projectArea": "20.89",
+        "cells": 66
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 27,
+    "fields": {
+        "glider": 6,
+        "certification": "C",
+        "size": "27",
+        "takeoffWeightMin": 100,
+        "takeoffWeightMax": 122,
+        "gliderWeight": "5.00",
+        "flatArea": 27,
+        "projectArea": "23.02",
+        "cells": 66
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 28,
+    "fields": {
+        "glider": 7,
+        "certification": "A",
+        "size": "XS",
+        "takeoffWeightMin": 65,
+        "takeoffWeightMax": 90,
+        "gliderWeight": "4.45",
+        "flatArea": 24,
+        "projectArea": "21.02",
+        "cells": 36
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 29,
+    "fields": {
+        "glider": 7,
+        "certification": "A",
+        "size": "S",
+        "takeoffWeightMin": 75,
+        "takeoffWeightMax": 100,
+        "gliderWeight": "4.70",
+        "flatArea": 26,
+        "projectArea": "22.88",
+        "cells": 36
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 30,
+    "fields": {
+        "glider": 7,
+        "certification": "A",
+        "size": "M",
+        "takeoffWeightMin": 85,
+        "takeoffWeightMax": 110,
+        "gliderWeight": "5.00",
+        "flatArea": 28,
+        "projectArea": "24.82",
+        "cells": 36
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 31,
+    "fields": {
+        "glider": 7,
+        "certification": "A",
+        "size": "L",
+        "takeoffWeightMin": 95,
+        "takeoffWeightMax": 120,
+        "gliderWeight": "5.25",
+        "flatArea": 31,
+        "projectArea": "26.85",
+        "cells": 36
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 32,
+    "fields": {
+        "glider": 7,
+        "certification": "A",
+        "size": "XL",
+        "takeoffWeightMin": 105,
+        "takeoffWeightMax": 135,
+        "gliderWeight": "5.25",
+        "flatArea": 34,
+        "projectArea": "29.60",
+        "cells": 36
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 33,
+    "fields": {
+        "glider": 8,
+        "certification": "D",
+        "size": "XS",
+        "takeoffWeightMin": 70,
+        "takeoffWeightMax": 88,
+        "gliderWeight": "4.85",
+        "flatArea": 20,
+        "projectArea": "17.56",
+        "cells": 86
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 34,
+    "fields": {
+        "glider": 8,
+        "certification": "D",
+        "size": "S",
+        "takeoffWeightMin": 85,
+        "takeoffWeightMax": 102,
+        "gliderWeight": "5.30",
+        "flatArea": 22,
+        "projectArea": "19.14",
+        "cells": 86
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 35,
+    "fields": {
+        "glider": 8,
+        "certification": "D",
+        "size": "L",
+        "takeoffWeightMin": 105,
+        "takeoffWeightMax": 127,
+        "gliderWeight": "5.95",
+        "flatArea": 26,
+        "projectArea": "22.93",
+        "cells": 86
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 36,
+    "fields": {
+        "glider": 9,
+        "certification": "B",
+        "size": "XXS",
+        "takeoffWeightMin": 55,
+        "takeoffWeightMax": 75,
+        "gliderWeight": "3.20",
+        "flatArea": 21,
+        "projectArea": "18.05",
+        "cells": 47
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 37,
+    "fields": {
+        "glider": 9,
+        "certification": "B",
+        "size": "XS",
+        "takeoffWeightMin": 65,
+        "takeoffWeightMax": 85,
+        "gliderWeight": "3.40",
+        "flatArea": 22,
+        "projectArea": "19.29",
+        "cells": 47
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 38,
+    "fields": {
+        "glider": 9,
+        "certification": "B",
+        "size": "S",
+        "takeoffWeightMin": 75,
+        "takeoffWeightMax": 95,
+        "gliderWeight": "3.60",
+        "flatArea": 24,
+        "projectArea": "21.00",
+        "cells": 47
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 39,
+    "fields": {
+        "glider": 9,
+        "certification": "B",
+        "size": "M",
+        "takeoffWeightMin": 85,
+        "takeoffWeightMax": 105,
+        "gliderWeight": "3.90",
+        "flatArea": 26,
+        "projectArea": "22.79",
+        "cells": 47
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 40,
+    "fields": {
+        "glider": 9,
+        "certification": "B",
+        "size": "L",
+        "takeoffWeightMin": 95,
+        "takeoffWeightMax": 115,
+        "gliderWeight": "4.20",
+        "flatArea": 26,
+        "projectArea": "24.65",
+        "cells": 47
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 41,
+    "fields": {
+        "glider": 10,
+        "certification": "A",
+        "size": "XXS",
+        "takeoffWeightMin": 55,
+        "takeoffWeightMax": 80,
+        "gliderWeight": "4.05",
+        "flatArea": 22,
+        "projectArea": "18.87",
+        "cells": 49
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 42,
+    "fields": {
+        "glider": 10,
+        "certification": "A",
+        "size": "XS",
+        "takeoffWeightMin": 70,
+        "takeoffWeightMax": 90,
+        "gliderWeight": "4.40",
+        "flatArea": 24,
+        "projectArea": "20.84",
+        "cells": 49
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 43,
+    "fields": {
+        "glider": 10,
+        "certification": "A",
+        "size": "S",
+        "takeoffWeightMin": 80,
+        "takeoffWeightMax": 110,
+        "gliderWeight": "4.75",
+        "flatArea": 27,
+        "projectArea": "22.76",
+        "cells": 49
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 44,
+    "fields": {
+        "glider": 10,
+        "certification": "A",
+        "size": "M",
+        "takeoffWeightMin": 90,
+        "takeoffWeightMax": 110,
+        "gliderWeight": "5.05",
+        "flatArea": 29,
+        "projectArea": "24.82",
+        "cells": 49
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 45,
+    "fields": {
+        "glider": 10,
+        "certification": "A",
+        "size": "L",
+        "takeoffWeightMin": 100,
+        "takeoffWeightMax": 130,
+        "gliderWeight": "5.40",
+        "flatArea": 32,
+        "projectArea": "27.02",
+        "cells": 49
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 46,
+    "fields": {
+        "glider": 11,
+        "certification": "D",
+        "size": "10",
+        "takeoffWeightMin": 55,
+        "takeoffWeightMax": 70,
+        "gliderWeight": "1.50",
+        "flatArea": 12,
+        "projectArea": "10.20",
+        "cells": 33
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 47,
+    "fields": {
+        "glider": 11,
+        "certification": "D",
+        "size": "12",
+        "takeoffWeightMin": 65,
+        "takeoffWeightMax": 90,
+        "gliderWeight": "1.65",
+        "flatArea": 14,
+        "projectArea": "12.00",
+        "cells": 33
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 48,
+    "fields": {
+        "glider": 11,
+        "certification": "D",
+        "size": "14",
+        "takeoffWeightMin": 55,
+        "takeoffWeightMax": 100,
+        "gliderWeight": "1.80",
+        "flatArea": 14,
+        "projectArea": "16.60",
+        "cells": 33
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 49,
+    "fields": {
+        "glider": 12,
+        "certification": "B",
+        "size": "XXS",
+        "takeoffWeightMin": 60,
+        "takeoffWeightMax": 80,
+        "gliderWeight": "3.55",
+        "flatArea": 21,
+        "projectArea": "18.20",
+        "cells": 59
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 50,
+    "fields": {
+        "glider": 12,
+        "certification": "B",
+        "size": "XS",
+        "takeoffWeightMin": 70,
+        "takeoffWeightMax": 90,
+        "gliderWeight": "4.80",
+        "flatArea": 24,
+        "projectArea": "20.20",
+        "cells": 59
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 51,
+    "fields": {
+        "glider": 12,
+        "certification": "B",
+        "size": "S",
+        "takeoffWeightMin": 80,
+        "takeoffWeightMax": 100,
+        "gliderWeight": "5.05",
+        "flatArea": 26,
+        "projectArea": "22.20",
+        "cells": 59
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 52,
+    "fields": {
+        "glider": 12,
+        "certification": "B",
+        "size": "M",
+        "takeoffWeightMin": 90,
+        "takeoffWeightMax": 110,
+        "gliderWeight": "5.30",
+        "flatArea": 28,
+        "projectArea": "24.20",
+        "cells": 59
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 53,
+    "fields": {
+        "glider": 12,
+        "certification": "B",
+        "size": "L",
+        "takeoffWeightMin": 100,
+        "takeoffWeightMax": 130,
+        "gliderWeight": "5.55",
+        "flatArea": 31,
+        "projectArea": "26.20",
+        "cells": 59
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 54,
+    "fields": {
+        "glider": 13,
+        "certification": "A",
+        "size": "XS",
+        "takeoffWeightMin": 55,
+        "takeoffWeightMax": 75,
+        "gliderWeight": "4.35",
+        "flatArea": 22,
+        "projectArea": "19.94",
+        "cells": 50
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 55,
+    "fields": {
+        "glider": 13,
+        "certification": "A",
+        "size": "S",
+        "takeoffWeightMin": 70,
+        "takeoffWeightMax": 90,
+        "gliderWeight": "4.85",
+        "flatArea": 25,
+        "projectArea": "21.79",
+        "cells": 50
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 56,
+    "fields": {
+        "glider": 13,
+        "certification": "A",
+        "size": "M",
+        "takeoffWeightMin": 80,
+        "takeoffWeightMax": 100,
+        "gliderWeight": "5.20",
+        "flatArea": 27,
+        "projectArea": "23.73",
+        "cells": 50
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 57,
+    "fields": {
+        "glider": 13,
+        "certification": "A",
+        "size": "L",
+        "takeoffWeightMin": 87,
+        "takeoffWeightMax": 110,
+        "gliderWeight": "5.50",
+        "flatArea": 29,
+        "projectArea": "27.85",
+        "cells": 50
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 58,
+    "fields": {
+        "glider": 13,
+        "certification": "A",
+        "size": "XL",
+        "takeoffWeightMin": 105,
+        "takeoffWeightMax": 125,
+        "gliderWeight": "5.85",
+        "flatArea": 31,
+        "projectArea": "27.85",
+        "cells": 50
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 59,
+    "fields": {
+        "glider": 14,
+        "certification": "B",
+        "size": "22",
+        "takeoffWeightMin": 55,
+        "takeoffWeightMax": 72,
+        "gliderWeight": "4.10",
+        "flatArea": 22,
+        "projectArea": "17.81",
+        "cells": 52
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 60,
+    "fields": {
+        "glider": 14,
+        "certification": "B",
+        "size": "24",
+        "takeoffWeightMin": 70,
+        "takeoffWeightMax": 90,
+        "gliderWeight": "4.35",
+        "flatArea": 24,
+        "projectArea": "19.47",
+        "cells": 52
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 61,
+    "fields": {
+        "glider": 14,
+        "certification": "B",
+        "size": "26",
+        "takeoffWeightMin": 78,
+        "takeoffWeightMax": 100,
+        "gliderWeight": "4.60",
+        "flatArea": 26,
+        "projectArea": "21.20",
+        "cells": 52
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 62,
+    "fields": {
+        "glider": 14,
+        "certification": "B",
+        "size": "28",
+        "takeoffWeightMin": 85,
+        "takeoffWeightMax": 110,
+        "gliderWeight": "4.85",
+        "flatArea": 28,
+        "projectArea": "23.00",
+        "cells": 52
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 63,
+    "fields": {
+        "glider": 14,
+        "certification": "B",
+        "size": "30",
+        "takeoffWeightMin": 105,
+        "takeoffWeightMax": 130,
+        "gliderWeight": "5.10",
+        "flatArea": 30,
+        "projectArea": "24.88",
+        "cells": 52
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 64,
+    "fields": {
+        "glider": 14,
+        "certification": "B",
+        "size": "33",
+        "takeoffWeightMin": 115,
+        "takeoffWeightMax": 145,
+        "gliderWeight": "5.45",
+        "flatArea": 33,
+        "projectArea": "27.58",
+        "cells": 52
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 65,
+    "fields": {
+        "glider": 15,
+        "certification": "D",
+        "size": "S",
+        "takeoffWeightMin": 88,
+        "takeoffWeightMax": 99,
+        "gliderWeight": "5.90",
+        "flatArea": 22,
+        "projectArea": "17.69",
+        "cells": 86
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 66,
+    "fields": {
+        "glider": 15,
+        "certification": "D",
+        "size": "M",
+        "takeoffWeightMin": 97,
+        "takeoffWeightMax": 107,
+        "gliderWeight": "6.20",
+        "flatArea": 24,
+        "projectArea": "19.20",
+        "cells": 86
+    }
+},
+{
+    "model": "showcase.size",
+    "pk": 67,
+    "fields": {
+        "glider": 15,
+        "certification": "D",
+        "size": "L",
+        "takeoffWeightMin": 104,
+        "takeoffWeightMax": 118,
+        "gliderWeight": "6.60",
+        "flatArea": 26,
+        "projectArea": "20.97",
+        "cells": 86
+    }
+}
+]

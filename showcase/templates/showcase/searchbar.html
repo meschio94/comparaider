@@ -67,7 +67,7 @@
                     <div class="container">
 
                         <div class="row justify-content-center">
-                            <div class="row">
+                            <div class="col-8 ">
                                 {{ myFilter.form.year | as_crispy_field }}
                                 {{ mySizeFilter.form|crispy }}
                             </div>
@@ -86,7 +86,7 @@
 
     </div>
 
-    <script src="{% static 'js/custom_slider.js' %}"></script>
+
 
     <script>
         function scrollToHash(hashName) {

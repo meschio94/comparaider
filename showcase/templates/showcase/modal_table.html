@@ -11,11 +11,11 @@
 
                     <form method="POST" action=".">
                         {% csrf_token %}
-                        <input type="hidden" name="sizeId" value="{{ size.id }}" />
+                        <input type="hidden" name="sizeId" value="{{ size.id }}"/>
                         <input class="btn btn-primary" type="submit" value="Compare">
                     </form>
 
-                    
+
                 </th>
             {% endfor %}
         </tr>
@@ -52,7 +52,19 @@
                 <th scope="col">{{ size.gliderWeight }}</th>
             {% endfor %}
         </tr>
-        </tbody>
+        <tr>
+            <th scope="row">Flat Area</th>
+            {% for size in glider.glider_size.all %}
+                <th scope="col">{{ size.flatArea }}</th>
+            {% endfor %}
+        </tr>
+        <tr>
+            <th scope="row">Project Area</th>
+            {% for size in glider.glider_size.all %}
+                <th scope="col">{{ size.projectArea }}</th>
+            {% endfor %}
+        </tr>
+
     </table>
 
 {% endblock %}

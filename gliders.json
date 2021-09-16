@@ -1,0 +1,152 @@
+[
+{
+    "model": "showcase.glider",
+    "pk": 1,
+    "fields": {
+        "name": "Enzo 3",
+        "maker": 1,
+        "year": 2020,
+        "gliderImage": "products/Ozone/2020/Enzo 3/Enzo_3"
+    }
+},
+{
+    "model": "showcase.glider",
+    "pk": 2,
+    "fields": {
+        "name": "Buzz Z6",
+        "maker": 1,
+        "year": 2020,
+        "gliderImage": "products/Ozone/2020/Buzz Z6/Buzz_Z6"
+    }
+},
+{
+    "model": "showcase.glider",
+    "pk": 3,
+    "fields": {
+        "name": "Geo 6",
+        "maker": 1,
+        "year": 2019,
+        "gliderImage": "products/Ozone/2019/Geo 6/Geo_6"
+    }
+},
+{
+    "model": "showcase.glider",
+    "pk": 4,
+    "fields": {
+        "name": "Hook 5",
+        "maker": 2,
+        "year": 2021,
+        "gliderImage": "products/Niviuk/2021/Hook 5/Hook_5"
+    }
+},
+{
+    "model": "showcase.glider",
+    "pk": 5,
+    "fields": {
+        "name": "Ikuma 2",
+        "maker": 2,
+        "year": 2020,
+        "gliderImage": "products/Niviuk/2020/Ikuma 2/Ikuma_2"
+    }
+},
+{
+    "model": "showcase.glider",
+    "pk": 6,
+    "fields": {
+        "name": "Artik 6",
+        "maker": 2,
+        "year": 2021,
+        "gliderImage": "products/Niviuk/2021/Artik 6/Artik_6"
+    }
+},
+{
+    "model": "showcase.glider",
+    "pk": 7,
+    "fields": {
+        "name": "Bolero 6",
+        "maker": 3,
+        "year": 2021,
+        "gliderImage": "products/Gin/2021/Bolero 6/Bolero_6"
+    }
+},
+{
+    "model": "showcase.glider",
+    "pk": 8,
+    "fields": {
+        "name": "Leopard",
+        "maker": 3,
+        "year": 2021,
+        "gliderImage": "products/Gin/2021/Leopard/Leopard"
+    }
+},
+{
+    "model": "showcase.glider",
+    "pk": 9,
+    "fields": {
+        "name": "Calypso",
+        "maker": 3,
+        "year": 2020,
+        "gliderImage": "products/Gin/2020/Calypso/Calypso"
+    }
+},
+{
+    "model": "showcase.glider",
+    "pk": 10,
+    "fields": {
+        "name": "Aionic",
+        "maker": 4,
+        "year": 2020,
+        "gliderImage": "products/Nova/2020/Aionic/Aionic"
+    }
+},
+{
+    "model": "showcase.glider",
+    "pk": 11,
+    "fields": {
+        "name": "Bantam",
+        "maker": 4,
+        "year": 2019,
+        "gliderImage": "products/Nova/2019/Bantam/Bantam"
+    }
+},
+{
+    "model": "showcase.glider",
+    "pk": 12,
+    "fields": {
+        "name": "Mentor",
+        "maker": 4,
+        "year": 2021,
+        "gliderImage": "products/Nova/2021/Mentor/Mentor"
+    }
+},
+{
+    "model": "showcase.glider",
+    "pk": 13,
+    "fields": {
+        "name": "Muse 5",
+        "maker": 5,
+        "year": 2021,
+        "gliderImage": "products/Macpara/2021/Muse 5/Muse_5"
+    }
+},
+{
+    "model": "showcase.glider",
+    "pk": 14,
+    "fields": {
+        "name": "Illusion",
+        "maker": 5,
+        "year": 2020,
+        "gliderImage": "products/Macpara/2020/Illusion/Illusion"
+    }
+},
+{
+    "model": "showcase.glider",
+    "pk": 15,
+    "fields": {
+        "name": "Magus",
+        "maker": 5,
+        "year": 2019,
+        "gliderImage": "products/Macpara/2019/Magus/Magus"
+    }
+}
+]
